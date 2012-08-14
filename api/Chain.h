@@ -8,8 +8,7 @@
 #pragma once
 #define __CHAIN_H__
 
-#include <string>
-#include "Define.h"
+#include "ZiaDefine.h"
 #include "Module.h"
 #include "Service.h"
 #include "Request.h"

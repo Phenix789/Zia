@@ -7,7 +7,7 @@
 #pragma once
 #define __SERVICEMANAGER_H__
 
-#include "Define.h"
+#include "ZiaDefine.h"
 #include "Exception.h"
 #include "Service.h"
 

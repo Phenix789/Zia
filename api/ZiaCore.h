@@ -8,7 +8,7 @@
 #pragma once
 #define __ZIACORE_H__
 
-#include "Define.h"
+#include "ZiaDefine.h"
 #include "Exception.h"
 #include "Service.h"
 #include "ServiceManager.h"

@@ -8,7 +8,6 @@
 #pragma once
 #define __MODULE_H__
 
-#include <string>
 #include "ZiaDefine.h"
 #include "tools/NonCopyable.hpp"
 

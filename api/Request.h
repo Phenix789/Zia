@@ -8,8 +8,7 @@
 #pragma once
 #define __REQUEST_H__
 
-#include <string>
-#include "Define.h"
+#include "ZiaDefine.h"
 
 namespace ZIA_API_NAMESPACE {
 
