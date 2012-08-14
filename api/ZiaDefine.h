@@ -16,6 +16,9 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	typedef int MetadataCollection;
+	typedef int Buffer;
+
         enum ProtocolVersion {
                 HTTP_1_0,
                 HTTP_1_1,
@@ -96,6 +99,8 @@ namespace ZIA_API_NAMESPACE {
                 RC_511, //RFC 6585
         };
 
+	const std::string & get_protocol_version_string(ProtocolVersion version);
+	const std::string & get_request_method_string(RequestMethod method);
         const std::string & get_response_code_string(ResponseCode code);
 
 }

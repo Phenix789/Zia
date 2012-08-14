@@ -1,4 +1,4 @@
-#include "Define.h"
+#include "ZiaDefine.h"
 #include "Exception.h"
 #include "Request.h"
 #include "Response.h"
@@ -7,3 +7,6 @@
 #include "Service.h"
 #include "ServiceManager.h"
 #include "ZiaCore.h"
+#include "HTTP.h"
+#include "Loader.h"
+#include "ZiaExternC.h"

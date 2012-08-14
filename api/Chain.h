@@ -11,6 +11,7 @@
 #include <string>
 #include "Define.h"
 #include "Module.h"
+#include "Service.h"
 #include "Request.h"
 #include "Response.h"
 #include "Exception.h"

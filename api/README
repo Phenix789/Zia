@@ -1,6 +1,0 @@
-API basé sur le pattern de la chaine de responsabilité. Un chainage de module sont executé a la suite (si il corresponde a la requete)
-De plus, un systeme de service est disponible et permet d'ajouté des fonctionnalité hors traitement et generique.
-Hors module, tout est service, ce qui fait que le gestionnaire de service est lui meme service (bell boucle infinie :p), de meme que le core du zia.
-On voit ca sur skype demain ou lundi pour que je vous presente plus en detail mon premier jet et qu'on en discute.
-
-Je me suis basé sur le HTTPFoundation de Symfony2 ainsi que sont dependency injection, allez jeter un oeil, c'est pas trop mal.
