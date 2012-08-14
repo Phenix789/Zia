@@ -19,8 +19,8 @@ namespace ZIA_API_NAMESPACE {
 
         class ZiaCoreException : public ZiaFatalException {
         public:
-                ZiaCoreException(const std::string & error = "");
-                virtual ~ZiaCoreException();
+                ZiaCoreException(const std::string & error = "") throw ();
+                virtual ~ZiaCoreException() throw ();
 
         };
 

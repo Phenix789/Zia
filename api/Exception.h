@@ -25,6 +25,17 @@ namespace ZIA_API_NAMESPACE {
 	};
 
 	/**
+	 * @brief Exception pour stopper le traitement de la requete
+	 *
+	 */
+	class ZiaStopException : public utils::Exception {
+	public:
+		ZiaStopException(const std::string & error = "") throw ();
+		virtual ~ZiaStopException() throw ();
+
+	};
+
+	/**
 	 * @brief Class d'exception du Zia
 	 *
 	 */

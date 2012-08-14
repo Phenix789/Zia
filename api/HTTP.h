@@ -18,15 +18,15 @@ namespace ZIA_API_NAMESPACE {
 
 	class ZiaDecodeException : public ZiaException {
 	public:
-		ZiaDecodeException(const std::string & error = "");
-		virtual ~ZiaDecodeException();
+		ZiaDecodeException(const std::string & error = "") throw ();
+		virtual ~ZiaDecodeException() throw ();
 
 	};
 
 	class ZiaEncodeException : public ZiaException {
 	public:
-		ZiaEncodeException(const std::string & error = "");
-		virtual ~ZiaEncodeException();
+		ZiaEncodeException(const std::string & error = "") throw ();
+		virtual ~ZiaEncodeException() throw ();
 
 	};
 
@@ -35,7 +35,7 @@ namespace ZIA_API_NAMESPACE {
 		HTTPDecode(ZiaCore & core);
 		virtual ~HTTPEncode();
 
-		void decode(Request & request, Buffer & buffer) __throw __throw1(ZiaDecodeException);
+		void decode(Request & request, Buffer & buffer) __throw __throw1(ZAN::ZiaDecodeException);
 
 	};
 
@@ -44,7 +44,7 @@ namespace ZIA_API_NAMESPACE {
 		HTTPEncode(ZiaCore & core);
 		virtual ~HTTPDecode();
 
-		void encode(Response & response, Buffer & buffer) __throw __throw1(ZiaEncodeException);
+		void encode(Response & response, Buffer & buffer) __throw __throw1(ZAN::ZiaEncodeException);
 
 	};
 

@@ -10,6 +10,8 @@
 
 #include "ZiaDefine.h"
 #include "tools/NonCopyable.hpp"
+#include "Request.h"
+#include "Response.h"
 
 namespace ZIA_API_NAMESPACE {
 
@@ -24,9 +26,9 @@ namespace ZIA_API_NAMESPACE {
                 virtual void disable() = 0;
                 virtual void enable() = 0;
 
-                virtual bool initialize() __throw __throw1(ZiaModuleException) = 0;
+                virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException) = 0;
                 virtual bool check(Request & request) = 0;
-                virtual void execute(Request & request, Response & response) __throw __throw1(ZiaModuleException) = 0;
+                virtual void execute(Request & request, Response & response) __throw __throw1(ZAN::ZiaModuleException) = 0;
 
         };
 

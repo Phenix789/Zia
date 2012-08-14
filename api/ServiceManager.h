@@ -34,7 +34,7 @@ namespace ZIA_API_NAMESPACE {
 
                 bool hasService(const std::string & serviceName) const;
                 ServiceManager & addService(Service * __delegate service);
-                ServiceManager & removeService(std::string & serviceName) __throw __throw1(ZiaUnknowServiceException);
+                ServiceManager & removeService(std::string & serviceName) __throw __throw1(ZAN::ZiaUnknowServiceException);
 
                 template<typename T>
                 bool hasService(const std::string & serviceName) const;
@@ -43,12 +43,12 @@ namespace ZIA_API_NAMESPACE {
                 bool hasService<Service>(const std::string & serviceName) const;
 
                 template<typename T>
-                T & getService(const std::string & serviceName) __throw __throw2(ZiaUnknowServiceException, ZiaBadCastServiceException);
+                T & getService(const std::string & serviceName) __throw __throw2(ZAN::ZiaUnknowServiceException, ZAN::ZiaBadCastServiceException);
 
                 template<>
-                Service & getService<Service>(const std::string & serviceName) __throw __throw2(ZiaUnknowServiceException, ZiaBadCastServiceException);
+                Service & getService<Service>(const std::string & serviceName) __throw __throw2(ZAN::ZiaUnknowServiceException, ZAN::ZiaBadCastServiceException);
 
-                void initialise() __throw __throw1(ZiaServiceException);
+                void initialise() __throw __throw1(ZAN::ZiaServiceException);
 
         };
 

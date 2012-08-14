@@ -16,8 +16,8 @@ namespace ZIA_API_NAMESPACE {
 
 	class ZiaLoadException : public ZiaException {
 	public:
-		ZiaLoadException(const std::string & error = "");
-		virtual ~ZiaLoadException();
+		ZiaLoadException(const std::string & error = "") throw ();
+		virtual ~ZiaLoadException() throw ();
 
 	};
 
@@ -38,10 +38,13 @@ namespace ZIA_API_NAMESPACE {
 		virtual ~Loader();
 
 		void save(const std::string & name, Handler<T> handler);
-		T __delegate * load(const std::string & name) __throw __throw1(ZiaLoadException);
+		T __delegate * load(const std::string & name) __throw __throw1(ZAN::ZiaLoadException);
 
 	};
 
+	typedef Handler<Module> HandlerModule;
+	typedef Handler<Service> HandlerService;
+	
 	typedef Loader<Module> LoaderModule;
 	typedef Loader<Service> LoaderService;
 
