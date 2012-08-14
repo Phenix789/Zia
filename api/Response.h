@@ -12,7 +12,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaCode;
+	ZIA_CORE
 
         class Response {
 	public:

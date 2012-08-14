@@ -12,7 +12,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaCore;
+	ZIA_CORE
 
 	class Request {
 	public:

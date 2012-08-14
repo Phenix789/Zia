@@ -9,15 +9,20 @@
 #define __ZIADEFINE_H__
 
 #include <string>
+#include <list>
+#include <map>
 #include "Define.h"
 
 #define ZIA_API_NAMESPACE ZiaAPI
 #define ZAN ZIA_API_NAMESPACE
 
+#define ZIA_CORE class ZiaCore;
+
 namespace ZIA_API_NAMESPACE {
 
 	typedef int MetadataCollection;
 	typedef int Buffer;
+	typedef std::map<std::string, std::string> ParameterMap;
 
         enum ProtocolVersion {
                 HTTP_1_0,

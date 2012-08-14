@@ -15,7 +15,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaCore;
+	ZIA_CORE
 
         class Module : public utils::NonCopyable {
         public:
@@ -28,7 +28,7 @@ namespace ZIA_API_NAMESPACE {
                 virtual void disable() = 0;
                 virtual void enable() = 0;
 
-                virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException) = 0;
+                virtual bool initialize(ParameterMap & parameters) __throw __throw1(ZAN::ZiaModuleException) = 0;
                 virtual bool check(const Request & request) = 0;
                 virtual void execute(Request & request, Response & response) __throw __throw1(ZAN::ZiaModuleException) = 0;
 

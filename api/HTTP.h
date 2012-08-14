@@ -12,9 +12,10 @@
 #include "Service.h"
 #include "Request.h"
 #include "Response.h"
-#include "ZiaCore.h"
 
 namespace ZIA_API_NAMESPACE {
+
+	ZIA_CORE
 
 	class ZiaDecodeException : public ZiaException {
 	public:
