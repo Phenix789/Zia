@@ -15,9 +15,11 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	class ZiaCore;
+
         class Module : public utils::NonCopyable {
         public:
-                Module();
+                Module(ZiaCore & core);
                 virtual ~Module();
 
                 virtual const std::string & getName() const = 0;

@@ -12,6 +12,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	class ZiaCode;
+
         class Response {
 	public:
 		Response(ZiaCore & core);

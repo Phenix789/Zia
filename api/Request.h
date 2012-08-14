@@ -16,7 +16,6 @@ namespace ZIA_API_NAMESPACE {
 
 	class Request {
 	public:
-
 		Request(ZiaCore & core) {}
 		virtual ~Request() {}
 

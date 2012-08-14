@@ -27,9 +27,11 @@ namespace ZIA_API_NAMESPACE {
 
         };
 
+	class ZiaCore;
+
         class ServiceManager : public Service {
         public:
-                ServiceManager();
+                ServiceManager(ZiaCore & core);
                 virtual ~ServiceManager();
 
                 bool hasService(const std::string & serviceName) const;
