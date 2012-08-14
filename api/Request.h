@@ -32,11 +32,10 @@ namespace ZIA_API_NAMESPACE {
 
 		/*SETTER*/
 		virtual Request & setMethod(RequestMethod method);
-		virtual Request & setStringMethod(const std::string & method);
-		virtual Request & setProtocolVersion();
+		virtual Request & setProtocolVersion(ProtocolVersion version);
 		virtual Request & setMetadata(const std::string & name, const std::string & value);
 		virtual Request & removeMetadata(const std::string & name) __throw;
-		virtual Request & cleanMetadats();
+		virtual Request & cleanMetadatas();
 
 	};
 }
