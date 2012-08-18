@@ -25,7 +25,8 @@ namespace ZIA_API_NAMESPACE {
         enum ProtocolVersion {
                 HTTP_1_0,
                 HTTP_1_1,
-                HTTP_2_0 //Developpement futur
+                HTTP_2_0, //Developpement futur
+		HTTP_ERROR = -1
         };
 
         enum RequestMethod {
@@ -36,7 +37,8 @@ namespace ZIA_API_NAMESPACE {
                 DELETE,
                 HEAD,
                 TRACE,
-                CONNECT
+                CONNECT,
+		ERROR = -1
         };
 
         enum ResponseCode {

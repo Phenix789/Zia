@@ -15,19 +15,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaDecodeException : public ZiaException {
-	public:
-		ZiaDecodeException(const std::string & error = "") throw ();
-		virtual ~ZiaDecodeException() throw ();
-
-	};
-
-	class ZiaEncodeException : public ZiaException {
-	public:
-		ZiaEncodeException(const std::string & error = "") throw ();
-		virtual ~ZiaEncodeException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaDecodeException, ZiaException);
+	ZIA_EXCEPTION_DECLARATION(ZiaEncodeException, ZiaException);
 
 	class HTTPDecode : public Service {
 	public:
