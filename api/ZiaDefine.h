@@ -12,6 +12,7 @@
 #include <list>
 #include <map>
 #include "Define.h"
+#include "buffer/Array.hpp"
 
 #define ZIA_API_NAMESPACE ZiaAPI
 #define ZAN ZIA_API_NAMESPACE
@@ -19,7 +20,7 @@
 namespace ZIA_API_NAMESPACE {
 
 	typedef int MetadataCollection;
-	typedef int Buffer;
+	typedef utils::CharArray Buffer;
 	typedef std::map<std::string, std::string> ParameterMap;
 
         enum ProtocolVersion {

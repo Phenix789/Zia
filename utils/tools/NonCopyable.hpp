@@ -2,9 +2,11 @@
 #pragma once
 #define	__NONCOPYABLE_HPP__
 
+#include "Define.h"
+
 namespace utils {
 
-	class NonCopyable {
+	abstract class NonCopyable {
 	private:
 		NonCopyable(const NonCopyable & other);
 		NonCopyable & operator =(const NonCopyable & other);

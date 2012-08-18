@@ -7,9 +7,11 @@
 #pragma once
 #define __RUNNABLE_H__
 
+#include "Define.h"
+
 namespace utils {
 
-	class IRunnable {
+	interface IRunnable {
 	public:
 		IRunnable() {}
 		virtual ~IRunnable() {}

@@ -11,7 +11,7 @@ namespace utils {
 	void __destroy_singleton();
 
 	template<typename T>
-	class Singleton {
+	abstract class Singleton {
 	private:
 		//static Mutex mutex;
 		static T * instance;
