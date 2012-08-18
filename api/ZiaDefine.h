@@ -16,8 +16,6 @@
 #define ZIA_API_NAMESPACE ZiaAPI
 #define ZAN ZIA_API_NAMESPACE
 
-#define ZIA_CORE class ZiaCore;
-
 namespace ZIA_API_NAMESPACE {
 
 	typedef int MetadataCollection;

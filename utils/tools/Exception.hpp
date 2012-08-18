@@ -16,18 +16,16 @@ namespace utils {
 		std::string error;
 
 	public:
-		inline Exception(const std::string & error = "") : error(error) {}
-		inline virtual ~Exception() {}
+		inline Exception(const std::string & error = "") throw () : error(error) {}
+		inline virtual ~Exception() throw () {}
 
-		inline virtual const char * what() const { return error.data(); }
-		inline virtual const std::string & getError() const { return error; }
+		inline virtual const char * what() const throw () { return error.data(); }
+		inline virtual const std::string & getError() const throw () { return error; }
 
 	protected:
-		inline std::string & getError() { return error; }
-		inline void setError(const std::string & error) { this->error = error; }
+		inline std::string & getError() throw () { return error; }
+		inline void setError(const std::string & error) throw () { this->error = error; }
 
 	};
 
 }
-
-#endif

@@ -12,8 +12,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
 	class ValidateRequestModule : public Module {
 	public:
 		ValidateRequestModule(ZiaCore & core);

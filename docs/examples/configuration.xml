@@ -1,9 +1,9 @@
-<filters>
+<chain>
     <filter name="zia_decode" enable="on" />
     <filter name="zia_valide" enable="on" />
     <filter name="zia_traitment" enable="on" />
     <filter name="zia_encode" enable="on" />
-</filters>
+</chain>
 
 <modules>
     <module name="" enable="" filter="">

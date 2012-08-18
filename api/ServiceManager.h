@@ -13,21 +13,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
-        class ZiaUnknowServiceException : public ZiaServiceException {
-        public:
-                ZiaUnknowServiceException(const std::string & serviceName) throw ();
-                virtual ~ZiaUnknowServiceException() throw ();
-
-        };
-
-        class ZiaBadCastServiceException : public ZiaServiceException {
-        public:
-                ZiaBadCastServiceException(const std::string & serviceName) throw ();
-                virtual ~ZiaBadCastServiceException() throw ();
-
-        };
+	ZIA_EXCEPTION_DECLARATION(ZiaUnknowServiceException, ZiaServiceException);
+	ZIA_EXCEPTION_DECLARATION(ZiaBadCastServiceException, ZiaServiceException);
 
         class ServiceManager : public Service {
         public:

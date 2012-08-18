@@ -9,26 +9,24 @@
 #define __MODULE_H__
 
 #include "ZiaDefine.h"
-#include "tools/NonCopyable.hpp"
+#include "ZiaObject.h"
 #include "Request.h"
 #include "Response.h"
+#include "tools/NonCopyable.hpp"
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
-        class Module : public utils::NonCopyable {
+        interface Module : public ZiaObject, public utils::NonCopyable {
         public:
-                Module(ZiaCore & core);
-                virtual ~Module();
+                Module(ZiaCore & core) : ZiaObject(core) {}
+                virtual ~Module() {}
 
                 virtual const std::string & getName() const = 0;
 
                 virtual bool isEnable() const = 0;
-                virtual void disable() = 0;
-                virtual void enable() = 0;
+		virtual void setEnable(bool enable) = 0;
 
-                virtual bool initialize(ParameterMap & parameters) __throw __throw1(ZAN::ZiaModuleException) = 0;
+                virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException) = 0;
                 virtual bool check(const Request & request) = 0;
                 virtual void execute(Request & request, Response & response) __throw __throw1(ZAN::ZiaModuleException) = 0;
 

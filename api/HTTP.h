@@ -15,8 +15,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
 	class ZiaDecodeException : public ZiaException {
 	public:
 		ZiaDecodeException(const std::string & error = "") throw ();

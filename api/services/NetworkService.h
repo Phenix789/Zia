@@ -12,8 +12,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
 	class NetworkService : public Service {
 	public:
 		NetworkService(ZiaCore & core);

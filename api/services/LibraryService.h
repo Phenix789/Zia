@@ -14,8 +14,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
 	class ZiaLibraryException : public ZiaServiceException {
 	public:
 		ZiaLibraryException(const std::string & libraryName);

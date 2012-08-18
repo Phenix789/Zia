@@ -24,6 +24,9 @@
  */
 #define __static
 
+#define interface class
+#define abstract
+
 /**
  * @brief La fonction/method est suceptible de lancer une exception. Le nom de l'exception lancé peut etre specifié
  */

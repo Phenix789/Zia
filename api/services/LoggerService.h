@@ -12,8 +12,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_CORE
-
 	class LoggerService : public Service {
 	public:
 		LoggerService(ZiaCore & core);

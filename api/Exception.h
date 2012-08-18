@@ -11,61 +11,50 @@
 #include "ZiaDefine.h"
 #include "tools/Exception.hpp"
 
+#define ZIA_EXCEPTION_DECLARATION(name, extend)					\
+class name : public extend {							\
+public:										\
+	name(const std::string & error = "") throw ();				\
+	virtual ~name() throw ();						\
+}										\
+
+#define ZIA_EXCEPTION_IMPLEMENTATION(name, extend, message)			\
+name::name(const std::string & error)  throw ()					\
+: extend(message) {								\
+										\
+}										\
+										\
+name::~name() throw () {							\
+										\
+}										\
+
+#define ZIA_EXCEPTION_IMPLEMENTATION_ERROR(name, extend) ZIA_EXCEPTION_IMPLEMENTATION(name, extend, error)
+
 namespace ZIA_API_NAMESPACE {
 
 	/**
 	 * @brief Exception fatal, provoquera un arret du server
-	 *
 	 */
-	class ZiaFatalException : public utils::Exception {
-	public:
-		ZiaFatalException(const std::string & error = "") throw ();
-		virtual ~ZiaFatalException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaFatalException, utils::Exception);
 
 	/**
 	 * @brief Exception pour stopper le traitement de la requete
-	 *
 	 */
-	class ZiaStopException : public utils::Exception {
-	public:
-		ZiaStopException(const std::string & error = "") throw ();
-		virtual ~ZiaStopException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaStopException, utils::Exception);
 
 	/**
 	 * @brief Class d'exception du Zia
-	 *
 	 */
-	class ZiaException : public ZiaFatalException {
-	public:
-		ZiaException(const std::string & error = "") throw ();
-		virtual ~ZiaException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaException, utils::Exception);
 
 	/**
 	 * @brief Exception issu d'un module du server
-	 *
 	 */
-	class ZiaModuleException : public ZiaException {
-	public:
-		ZiaModuleException(const std::string & error = "") throw ();
-		virtual ~ZiaModuleException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaModuleException, ZiaException);
 
 	/**
 	 *
-	 *
 	 */
-	class ZiaServiceException : public ZiaException {
-	public:
-		ZiaServiceException(const std::string & error = "") throw ();
-		virtual ~ZiaServiceException() throw ();
-
-	};
+	ZIA_EXCEPTION_DECLARATION(ZiaServiceException, ZiaException);
 
 }
