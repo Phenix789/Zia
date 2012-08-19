@@ -7,12 +7,8 @@
 
 namespace utils {
 
-	class PointerNullException : public Exception {
-	public:
-		PointerNullException(const std::string & error) : Exception(error) {}
-		virtual ~PointerNullException() {}
-
-	};
+	EXCEPTION_DECLARATION(PointerNullException, Exception);
+	EXCEPTION_IMPLEMENTATION_ERROR(PointerNullException, Exception)
 
 	template<typename T>
 	class Pointer {
