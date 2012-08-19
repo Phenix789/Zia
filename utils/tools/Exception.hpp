@@ -29,3 +29,22 @@ namespace utils {
 	};
 
 }
+
+#define EXCEPTION_DECLARATION(name, extend)					\
+class name : public extend {							\
+public:										\
+	name(const std::string & error = "") throw ();				\
+	virtual ~name() throw ();						\
+}										\
+
+#define EXCEPTION_IMPLEMENTATION(name, extend, message)				\
+name::name(const std::string & error)  throw ()					\
+: extend(message) {								\
+										\
+}										\
+										\
+name::~name() throw () {							\
+										\
+}										\
+
+#define EXCEPTION_IMPLEMENTATION_ERROR(name, extend) EXCEPTION_IMPLEMENTATION(name, extend, error)

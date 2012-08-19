@@ -17,7 +17,7 @@ namespace ZIA_API_NAMESPACE {
 
 	class ZiaCore;
 
-	ZIA_EXCEPTION_DECLARATION(ZiaLoadException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaLoadException, ZiaException);
 
 	template<typename T>
 	interface Handler : public ZiaObject {

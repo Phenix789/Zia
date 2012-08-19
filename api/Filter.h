@@ -23,7 +23,7 @@ namespace ZIA_API_NAMESPACE {
 		After
 	};
 
-	ZIA_EXCEPTION_DECLARATION(ZiaUnknowModuleException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaUnknowModuleException, ZiaException);
 
 	class Filter : public ZiaObject {
 	protected:

@@ -18,8 +18,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_EXCEPTION_DECLARATION(ZiaChainException, ZiaException);
-	ZIA_EXCEPTION_DECLARATION(ZiaUnknowFilterException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaChainException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaUnknowFilterException, ZiaException);
 
         class Chain : public Service {
 	protected:

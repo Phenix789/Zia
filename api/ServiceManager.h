@@ -13,8 +13,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_EXCEPTION_DECLARATION(ZiaUnknowServiceException, ZiaServiceException);
-	ZIA_EXCEPTION_DECLARATION(ZiaBadCastServiceException, ZiaServiceException);
+	EXCEPTION_DECLARATION(ZiaUnknowServiceException, ZiaServiceException);
+	EXCEPTION_DECLARATION(ZiaBadCastServiceException, ZiaServiceException);
 
         class ServiceManager : public Service {
         public:

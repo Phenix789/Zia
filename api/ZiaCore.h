@@ -17,7 +17,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_EXCEPTION_DECLARATION(ZiaCoreException, ZiaFatalException);
+	EXCEPTION_DECLARATION(ZiaCoreException, ZiaFatalException);
 
         class ZiaCore : public Service {
         public:

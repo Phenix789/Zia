@@ -15,8 +15,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	ZIA_EXCEPTION_DECLARATION(ZiaDecodeException, ZiaException);
-	ZIA_EXCEPTION_DECLARATION(ZiaEncodeException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaDecodeException, ZiaException);
+	EXCEPTION_DECLARATION(ZiaEncodeException, ZiaException);
 
 	class HTTPDecode : public Service {
 	public:
