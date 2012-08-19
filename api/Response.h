@@ -9,10 +9,14 @@
 #define __RESPONSE_H__
 
 #include "ZiaDefine.h"
+#include "ZiaObject.h"
 
 namespace ZIA_API_NAMESPACE {
 
         class Response {
+	protected:
+		ResponseCode code;
+
 	public:
 		Response(ZiaCore & core);
 		virtual ~Response();

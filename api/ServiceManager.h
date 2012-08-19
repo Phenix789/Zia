@@ -8,7 +8,7 @@
 #define __SERVICEMANAGER_H__
 
 #include "ZiaDefine.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Service.h"
 
 namespace ZIA_API_NAMESPACE {

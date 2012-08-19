@@ -8,7 +8,7 @@
 #define	__HTTPENCODE_H__
 
 #include "ZiaDefine.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Service.h"
 #include "Request.h"
 #include "Response.h"

@@ -6,7 +6,7 @@
  */
 
 #pragma once
-#define __EXCEPTION_H__
+#define __ZIAEXCEPTION_H__
 
 #include "ZiaDefine.h"
 #include "tools/Exception.hpp"

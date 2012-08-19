@@ -1,5 +1,5 @@
 #include "ZiaDefine.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Request.h"
 #include "Response.h"
 #include "Module.h"

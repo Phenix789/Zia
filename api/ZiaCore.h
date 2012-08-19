@@ -9,7 +9,7 @@
 #define __ZIACORE_H__
 
 #include "ZiaDefine.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Service.h"
 #include "ServiceManager.h"
 #include "Module.h"

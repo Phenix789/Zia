@@ -9,7 +9,7 @@
 #define __CHAIN_H__
 
 #include "ZiaDefine.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Module.h"
 #include "Service.h"
 #include "Filter.h"

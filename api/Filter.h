@@ -9,7 +9,7 @@
 
 #include "ZiaDefine.h"
 #include "ZiaObject.h"
-#include "Exception.h"
+#include "ZiaException.h"
 #include "Module.h"
 #include "Request.h"
 #include "Response.h"
