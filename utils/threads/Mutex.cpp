@@ -8,6 +8,8 @@
 
 using namespace utils;
 
+EXCEPTION_IMPLEMENTATION_ERROR(MutexException, Exception)
+
 #if defined WINDOWS
 
 Mutex::Mutex() {

@@ -10,6 +10,7 @@
 #include <string>
 #include "Define.h"
 #include "IRunnable.h"
+#include "tools/Exception.hpp"
 #include "tools/NonCopyable.hpp"
 
 #if defined WINDOWS
@@ -24,19 +25,8 @@
 
 namespace utils {
 
-	class ThreadException : public Exception {
-	public:
-		ThreadException(const std::string & error = "");
-		virtual ~ThreadException();
-
-	};
-
-	class BasicThreadException : public Exception {
-	public:
-		BasicThreadException(const std::string & error = "");
-		virtual ~BasicThreadException();
-
-	};
+	EXCEPTION_DECLARATION(ThreadException, Exception);
+	EXCEPTION_DECLARATION(BasicThreadException, Exception);
 
 	class Thread : private NonCopyable {
 	private:

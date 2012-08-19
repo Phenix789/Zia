@@ -5,7 +5,7 @@
 #include <string>
 #include "Define.h"
 #include "tools/NonCopyable.hpp"
-#include "tools/Exception.h"
+#include "tools/Exception.hpp"
 
 #if defined WINDOWS
 	#include <Windows.h>
@@ -17,12 +17,8 @@
 
 namespace utils {
 
-	class MutexException : public Exception {
-	public:
-		MutexException(const std::string & error = "");
-		virtual ~MutexException();
 
-	};
+	EXCEPTION_DECLARATION(MutexException, Exception);
 
 	class Mutex : private NonCopyable {
 	private:
