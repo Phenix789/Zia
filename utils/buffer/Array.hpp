@@ -20,13 +20,13 @@ namespace utils {
 		int max;
 
 	public:
-		OutOfBoundsException(int position, int max);
-		virtual ~OutOfBoundsException();
+		OutOfBoundsException(int position, int max) throw ();
+		virtual ~OutOfBoundsException() throw ();
 
-		int getPosition() const;
-		int getMax() const;
+		int getPosition() const throw ();
+		int getMax() const throw ();
 
-		virtual const char * what();
+		virtual const char * what() throw ();
 
 	};
 
@@ -75,37 +75,37 @@ namespace utils {
 
 /*Template implementation*/
 
-utils::OutOfBoundsException::OutOfBoundsException(int position, int max)
+utils::OutOfBoundsException::OutOfBoundsException(int position, int max) throw()
 : position(position), max(max) {
 
 }
 
-utils::OutOfBoundsException::~OutOfBoundsException() {
+utils::OutOfBoundsException::~OutOfBoundsException() throw () {
 
 }
 
-int utils::OutOfBoundsException::getPosition() const {
+int utils::OutOfBoundsException::getPosition() const throw () {
 	return position;
 }
 
-int utils::OutOfBoundsException::getMax() const {
+int utils::OutOfBoundsException::getMax() const throw () {
 	return max;
 }
 
-const char * utils::OutOfBoundsException::what() {
+const char * utils::OutOfBoundsException::what() throw () {
 	std::stringstream ss;
 	ss << "Out of bounds : " << position << " (" << max << ")";
 	return ss.str().data();
 }
 
 template<typename T>
-utils::Array::Array(bool deleteAtDestroy = true)
+utils::Array<T>::Array(bool deleteAtDestroy)
 : table(0), tableSize(0), currentUsedSize(0), deleteAtDestroy(deleteAtDestroy) {
 
 }
 
 template<typename T>
-utils::Array::Array(const T * data, int size, bool deleteAtDestroy = true)
+utils::Array<T>::Array(const T * data, int size, bool deleteAtDestroy)
 : table(NULL), deleteAtDestroy(deleteAtDestroy) {
 	allocate(size);
 	std::memcpy(reinterpret_cast<void *> (table), reinterpret_cast<const void *> (data), size);
@@ -114,26 +114,26 @@ utils::Array::Array(const T * data, int size, bool deleteAtDestroy = true)
 }
 
 template<typename T>
-utils::Array::Array(T * data, int size, bool deleteAtDestroy = true)
+utils::Array<T>::Array(T * data, int size, bool deleteAtDestroy)
 : table(data), tableSize(size), currentUsedSize(size), deleteAtDestroy(deleteAtDestroy) {
 
 }
 
 template<typename T>
-utils::Array::Array(int size, bool deleteAtDestroy = true)
+utils::Array<T>::Array(int size, bool deleteAtDestroy)
 : table(0), deleteAtDestroy(deleteAtDestroy) {
 	allocate(size);
 }
 
 template<typename T>
-utils::Array::~Array() {
+utils::Array<T>::~Array() {
 	if (deleteAtDestroy) {
 		delete [] table;
 	}
 }
 
 template<typename T>
-T & utils::Array::operator [](int position) {
+T & utils::Array<T>::operator [](int position) {
 	if (position >= tableSize || position < 0) {
 		throw OutOfBoundsException(position, tableSize);
 	}
@@ -141,7 +141,7 @@ T & utils::Array::operator [](int position) {
 }
 
 template<typename T>
-const T & utils::Array::operator [](int position) const {
+const T & utils::Array<T>::operator [](int position) const {
 	if (position >= tableSize || position < 0) {
 		throw OutOfBoundsException(position, tableSize);
 	}
@@ -149,7 +149,7 @@ const T & utils::Array::operator [](int position) const {
 }
 
 template<typename T>
-utils::Array<T> & utils::Array::operator =(const Array<T> & oth) {
+utils::Array<T> & utils::Array<T>::operator =(const Array<T> & oth) {
 	if (this != &oth) {
 		delete [] table;
 		tableSize = oth.size();
@@ -161,7 +161,7 @@ utils::Array<T> & utils::Array::operator =(const Array<T> & oth) {
 }
 
 template<typename T>
-utils::Array<T> & utils::Array::operator +(const T & oth) {
+utils::Array<T> & utils::Array<T>::operator +(const T & oth) {
 	Array<T> converted(1);
 	converted[0] = oth;
 
@@ -169,7 +169,7 @@ utils::Array<T> & utils::Array::operator +(const T & oth) {
 }
 
 template<typename T>
-utils::Array<T> utils::Array::operator +(const Array<T> & oth) const {
+utils::Array<T> utils::Array<T>::operator +(const Array<T> & oth) const {
 	Array<T> newTable(oth.size() + size());
 
 	std::memcpy(reinterpret_cast<void *> (newTable.getData()), reinterpret_cast<void *> (getData()), size());
@@ -179,29 +179,29 @@ utils::Array<T> utils::Array::operator +(const Array<T> & oth) const {
 }
 
 template<typename T>
-utils::Array<T> & utils::Array::operator +=(const T & oth) {
+utils::Array<T> & utils::Array<T>::operator +=(const T & oth) {
 	return operator+(oth);
 }
 
 template<typename T>
-utils::Array<T> & utils::Array::operator +=(const Array<T> & oth) {
+utils::Array<T> & utils::Array<T>::operator +=(const Array<T> & oth) {
 	return add(oth, oth.size());
 }
 
 template<typename T>
-utils::Array<T> utils::Array::duplicate() const {
+utils::Array<T> utils::Array<T>::duplicate() const {
 	Array<T> newTable(tableSize);
 	std::memcpy(newTable->getData(), table, tableSize);
 	return newTable;
 }
 
 template<typename T>
-void utils::Array::clear() {
+void utils::Array<T>::clear() {
 	allocate(0);
 }
 
 template<typename T>
-void utils::Array::allocate(int size) {
+void utils::Array<T>::allocate(int size) {
 	delete [] table;
 	table = NULL;
 	if (size > 0) {
@@ -213,7 +213,7 @@ void utils::Array::allocate(int size) {
 }
 
 template<typename T>
-utils::Array<T> & utils::Array::add(const Array<char> & oth, int n) {
+utils::Array<T> & utils::Array<T>::add(const Array<char> & oth, int n) {
 	T * newTable = new T[size() + n];
 
 	std::memcpy(reinterpret_cast<void *> (newTable), reinterpret_cast<void *> (getData()), size());
@@ -226,7 +226,7 @@ utils::Array<T> & utils::Array::add(const Array<char> & oth, int n) {
 }
 
 template<typename T>
-void utils::Array::refactor(int startIndex, int endIndex) {
+void utils::Array<T>::refactor(int startIndex, int endIndex) {
 	if (startIndex < 0) {
 		startIndex = 0;
 	}
@@ -250,7 +250,7 @@ void utils::Array::refactor(int startIndex, int endIndex) {
 }
 
 template<typename T>
-T * utils::Array::getAddress(int position) const {
+T * utils::Array<T>::getAddress(int position) const {
 	if (position >= tableSize || position < 0) {
 		throw OutOfBoundsException(position, tableSize);
 	}
@@ -258,34 +258,34 @@ T * utils::Array::getAddress(int position) const {
 }
 
 template<typename T>
-int utils::Array::size() const {
+int utils::Array<T>::size() const {
 	return tableSize;
 }
 
 template<typename T>
-int utils::Array::usedSize() const {
+int utils::Array<T>::usedSize() const {
 	return currentUsedSize;
 }
 
 template<typename T>
-T * utils::Array::getData() const {
+T * utils::Array<T>::getData() const {
 	return table;
 }
 
 template<typename T>
-void utils::Array::setData(T * data, int size) {
+void utils::Array<T>::setData(T * data, int size) {
 	this->table = data;
 	this->tableSize = size;
 	this->currentUsedSize = size;
 }
 
 template<typename T>
-void utils::Array::setDeleteAtDestroy(bool deleteAtDestroy) {
+void utils::Array<T>::setDeleteAtDestroy(bool deleteAtDestroy) {
 	this->deleteAtDestroy = deleteAtDestroy;
 }
 
 template<typename T>
-void utils::Array::setUsedSize(int usedSize) {
+void utils::Array<T>::setUsedSize(int usedSize) {
 	if (usedSize > tableSize || usedSize < 0) {
 		throw OutOfBoundsException(usedSize, tableSize);
 	}
