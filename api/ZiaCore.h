@@ -8,6 +8,8 @@
 #pragma once
 #define __ZIACORE_H__
 
+#include <vector>
+
 #include "network/Listener.h"
 
 #include "ZiaDefine.h"
@@ -17,6 +19,7 @@
 #include "Module.h"
 #include "Chain.h"
 #include "Loader.h"
+#include "ZiaWorkerUnit.h"
 
 #include "services/NetworkService.h"
 #include "services/ConfigFileService.h"
@@ -28,14 +31,11 @@ namespace ZIA_API_NAMESPACE {
 
         class ZiaCore : public Service, public utils::Listener {
 	protected:
+		typedef std::vector<ZiaWorkerUnit> ExecuteUnits;
 		LoaderModule loaderModule;
 		LoaderService loaderService;
 		Chain chain;
-
-		ConfigFileService & config;
-		NetworkService & network;
-		HTTPDecode & decoder;
-		HTTPEncode & encoder;
+		ExecuteUnits units;
 
         public:
                 ZiaCore();
@@ -45,6 +45,7 @@ namespace ZIA_API_NAMESPACE {
 		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException, ZAN::ZiaCoreException);
 
 		virtual void onReceive(const utils::CharArray & request);
+		virtual void onWorkerFinish(ZiaWorkerUnit * unit);
 
         };
 

@@ -69,7 +69,7 @@ float utils::Variant::toFloat() const {
 }
 
 template<typename T>
-utils::Variant::Variant(const T & value)
+utils::Variant<T>::Variant(const T & value)
 : value(utils::to_string<T>(value)) {
 
 }
@@ -81,7 +81,7 @@ utils::Variant::Variant(const std::string & value)
 }
 
 template<typename T>
-utils::Variant & utils::Variant::operator =(const T & value) {
+utils::Variant & utils::Variant<T>::operator =(const T & value) {
 	this->value = utils::to_string(value);
 }
 
@@ -91,7 +91,7 @@ utils::Variant & utils::Variant::operator =(const std::string & value) {
 }
 
 template<typename T>
-utils::Variant::operator T() const {
+utils::Variant<T>::operator T() const {
 	return utils::string_convert<T>(value);
 }
 
