@@ -21,10 +21,6 @@
 #include "Loader.h"
 #include "ZiaWorkerUnit.h"
 
-#include "services/NetworkService.h"
-#include "services/ConfigFileService.h"
-#include "services/HTTP.h"
-
 namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION(ZiaCoreException, ZiaFatalException);
@@ -46,6 +42,8 @@ namespace ZIA_API_NAMESPACE {
 
 		virtual void onReceive(const utils::CharArray & request);
 		virtual void onWorkerFinish(ZiaWorkerUnit * unit);
+
+		virtual const Chain & getChain() const;
 
         };
 
