@@ -19,7 +19,7 @@
 #include "Module.h"
 #include "Chain.h"
 #include "Loader.h"
-#include "ZiaWorkerUnit.h"
+#include "ZiaWorker.h"
 
 namespace ZIA_API_NAMESPACE {
 
@@ -27,11 +27,11 @@ namespace ZIA_API_NAMESPACE {
 
         class ZiaCore : public Service, public utils::Listener {
 	protected:
-		typedef std::vector<ZiaWorkerUnit> ExecuteUnits;
+		typedef std::vector<ZiaWorker> Workers;
 		LoaderModule loaderModule;
 		LoaderService loaderService;
 		Chain chain;
-		ExecuteUnits units;
+		Workers units;
 
         public:
                 ZiaCore();

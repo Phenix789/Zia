@@ -5,7 +5,7 @@
  */
 
 #pragma once
-#define	__ZIAWORKERUNIT_H__
+#define	__ZIAWORKER_H__
 
 #include "threads/Thread.h"
 #include "threads/Mutex.h"
@@ -18,15 +18,15 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaWorkerUnit : public ZiaObject, public utils::Thread {
+	class ZiaWorker : public ZiaObject, public utils::Thread {
 	protected:
 		utils::Mutex mutex;
 		Request * request;
 		Response * response;
 
 	public:
-		ZiaWorkerUnit(ZiaCore & core);
-		virtual ~ZiaWorkerUnit();
+		ZiaWorker(ZiaCore & core);
+		virtual ~ZiaWorker();
 
 		bool isBusy() const;
 		void execute(Request & request, Response & response);
