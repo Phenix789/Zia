@@ -5,7 +5,7 @@
  */
 
 #pragma once
-#define __TABLE_H__
+#define __ARRAY_HPP__
 
 #include <cstring>
 #include <sstream>
