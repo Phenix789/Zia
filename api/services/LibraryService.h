@@ -10,18 +10,21 @@
 #include "ZiaDefine.h"
 #include "ZiaException.h"
 #include "Service.h"
-#include "library/LibraryHandle.h"
+#include "library/LibraryHandler.h"
 
 namespace ZIA_API_NAMESPACE {
 
-	EXCEPTION_DECLARATION(ZiaLibraryException, ZiaServiceException);
+	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaLibraryException, ZiaServiceException);
 
 	class LibraryService : public Service {
 	public:
 		LibraryService(ZiaCore & core);
 		virtual ~LibraryService();
 
-		utils::LibraryHandle & loadLibrary(const std::string & library) __throw __throw1(ZAN::ZiaLibraryException);
+		virtual const std::string & getName() const;
+		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+
+		utils::LibraryHandler & loadLibrary(const std::string & library) __throw __throw1(ZAN::ZiaLibraryException);
 
 	};
 

@@ -17,6 +17,9 @@ namespace ZIA_API_NAMESPACE {
 		LoggerService(ZiaCore & core);
 		virtual ~LoggerService();
 
+		virtual const std::string & getName() const;
+		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+
 	};
 
 }
