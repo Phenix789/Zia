@@ -8,6 +8,7 @@
 #pragma once
 #define __REQUEST_H__
 
+#include "buffer/Array.hpp"
 #include "ZiaDefine.h"
 #include "ZiaObject.h"
 
@@ -19,9 +20,10 @@ namespace ZIA_API_NAMESPACE {
 		RequestMethod method;
 		ProtocolVersion version;
 		ParameterMap headers;
+		utils::CharArray & buffer;
 
 	public:
-		Request(ZiaCore & core);
+		Request(ZiaCore & core, utils::CharArray & buffer);
 		virtual ~Request();
 
 		/*GETTER*/

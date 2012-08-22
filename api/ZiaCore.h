@@ -38,7 +38,7 @@ namespace ZIA_API_NAMESPACE {
                 virtual ~ZiaCore();
 
 		virtual const std::string & getName() const;
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException, ZAN::ZiaCoreException);
+		virtual void initialise() __throw __throw2(ZAN::ZiaServiceException, ZAN::ZiaCoreException);
 
 		virtual void onReceive(const utils::CharArray & request);
 		virtual void onWorkerFinish(ZiaWorkerUnit * unit);

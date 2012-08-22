@@ -8,6 +8,7 @@
 #pragma once
 #define __RESPONSE_H__
 
+#include "buffer/Array.hpp"
 #include "ZiaDefine.h"
 #include "ZiaObject.h"
 
@@ -16,6 +17,7 @@ namespace ZIA_API_NAMESPACE {
         class Response {
 	protected:
 		ResponseCode code;
+		utils::CharArray buffer;
 
 	public:
 		Response(ZiaCore & core);
