@@ -8,6 +8,7 @@
 #define	__SERIALIZABLE_H__
 
 #include "Define.h"
+#include "tools/Exception.hpp"
 #include "buffer/Array.hpp"
 
 namespace utils {
