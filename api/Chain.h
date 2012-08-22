@@ -11,17 +11,16 @@
 #include "ZiaDefine.h"
 #include "ZiaException.h"
 #include "Module.h"
-#include "Service.h"
 #include "Filter.h"
 #include "Request.h"
 #include "Response.h"
 
 namespace ZIA_API_NAMESPACE {
 
-	EXCEPTION_DECLARATION(ZiaChainException, ZiaException);
-	EXCEPTION_DECLARATION(ZiaUnknowFilterException, ZiaException);
+	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaChainException, ZiaException);
+	EXCEPTION_DECLARATION_INLINE(ZiaUnknowFilterException, ZiaException, "Unknow filter " + error);
 
-        class Chain : public Service {
+        class Chain {
 	protected:
 		typedef std::list<Filter *> ListFilter;
 		ListFilter filters;

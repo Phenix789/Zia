@@ -10,6 +10,7 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include <map>
 #include "Define.h"
 #include "buffer/Array.hpp"
@@ -19,7 +20,6 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	typedef int MetadataCollection;
 	typedef utils::CharArray Buffer;
 	typedef std::map<std::string, std::string> ParameterMap;
 

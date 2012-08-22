@@ -8,7 +8,7 @@
 #pragma once
 #define __REQUEST_H__
 
-#include "buffer/Array.hpp"
+#include "collection/Collection.hpp"
 #include "ZiaDefine.h"
 #include "ZiaObject.h"
 
@@ -19,29 +19,37 @@ namespace ZIA_API_NAMESPACE {
 		std::string ressource;
 		RequestMethod method;
 		ProtocolVersion version;
-		ParameterMap headers;
-		utils::CharArray & buffer;
+		utils::Collection headers;
+		Buffer & buffer;
 
 	public:
 		Request(ZiaCore & core);
 		virtual ~Request();
 
 		/*GETTER*/
+		const std::string & getRessource() const;
 		RequestMethod getMethod() const;
 		const std::string & getStringMethod() const;
-		const std::string & getRessource() const;
 		ProtocolVersion getProtocolVersion() const;
-		bool hasMetadata(const std::string & metadata) const;
-		const std::string & getMetadata(const std::string & metadata, const std::string & defaultValue = "") const;
-		const ParameterMap & getMetadatas() const;
-		ParameterMap & getMetadatas();
+		const std::string & getStringProtocolVersion() const;
+		const Buffer & getBuffer() const;
+
+		bool hasHeader(const std::string & key) const;
+		const utils::Variant & getHeader(const std::string & key) const __throw;
+		const utils::Variant & getHeader(const std::string & key, const utils::Variant & defaultValue) const;
+		const utils::Collection & getHeaders() const;
+		utils::Collection & getHeaders();
 
 		/*SETTER*/
+		Request & setRessource(const std::string & ressources);
 		Request & setMethod(RequestMethod method);
 		Request & setProtocolVersion(ProtocolVersion version);
-		Request & setMetadata(const std::string & name, const std::string & value);
-		Request & removeMetadata(const std::string & name) __throw;
-		Request & cleanMetadatas();
+		Request & setBuffer(Buffer & buffer);
+
+		Request & addHeader(const std::string & name, const std::string & value);
+		Request & addHeader(const std::string & name, const utils::Variant & value);
+		Request & removeHeader(const std::string & name) __throw;
+		Request & cleanHeaders();
 
 	};
 }

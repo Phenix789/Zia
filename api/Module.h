@@ -8,11 +8,11 @@
 #pragma once
 #define __MODULE_H__
 
+#include "tools/NonCopyable.hpp"
 #include "ZiaDefine.h"
 #include "ZiaObject.h"
 #include "Request.h"
 #include "Response.h"
-#include "tools/NonCopyable.hpp"
 
 namespace ZIA_API_NAMESPACE {
 

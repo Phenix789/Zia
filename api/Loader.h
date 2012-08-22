@@ -17,13 +17,13 @@ namespace ZIA_API_NAMESPACE {
 
 	class ZiaCore;
 
-	EXCEPTION_DECLARATION(ZiaLoadException, ZiaException);
+	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaLoadException, ZiaException);
 
 	template<typename T>
-	interface Handler : public ZiaObject {
+	interface Handler {
 	public:
 		typedef T Type;
-		Handler(ZiaCore & core);
+		Handler();
 		virtual ~Handler();
 
 		virtual T __delegate * load() = 0;
@@ -57,24 +57,23 @@ namespace ZIA_API_NAMESPACE {
 /*Template implementation*/
 
 template<typename T>
-ZAN::Handler::Handler(ZiaCore & core)
-: ZiaObject(core) {
+ZAN::Handler<T>::Handler() {
 
 }
 
 template<typename T>
-ZAN::Handler::~Handler() {
+ZAN::Handler<T>::~Handler() {
 
 }
 
 template<typename T>
-ZAN::Loader::Loader() {
+ZAN::Loader<T>::Loader() {
 
 }
 
 template<typename T>
-ZAN::Loader::~Loader() {
-	HandlerMap::iterator it = handlers.begin();
+ZAN::Loader<T>::~Loader() {
+	typename HandlerMap::iterator it = handlers.begin();
 	while (it != handlers.end()) {
 		delete it->second;
 		it++;
@@ -83,8 +82,8 @@ ZAN::Loader::~Loader() {
 }
 
 template<typename T>
-void ZAN::Loader::save(const std::string & name, Handler<T> * handler) {
-	HandlerMap::iterator it = handlers.find(name);
+void ZAN::Loader<T>::save(const std::string & name, Handler<T> * handler) {
+	typename HandlerMap::iterator it = handlers.find(name);
 	if (it != handlers.end()) {
 		delete *it;
 	}
@@ -92,8 +91,8 @@ void ZAN::Loader::save(const std::string & name, Handler<T> * handler) {
 }
 
 template<typename T>
-T * ZAN::Loader::load(const std::string & name) {
-	HandlerMap::iterator it = handlers.find(name);
+T * ZAN::Loader<T>::load(const std::string & name) {
+	typename HandlerMap::iterator it = handlers.find(name);
 	if (it != handlers.end()) {
 		return it->second->load();
 	}

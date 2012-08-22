@@ -18,8 +18,8 @@ namespace ZIA_API_NAMESPACE {
 		ZiaCore & core;
 
 	public:
-		ZiaObject(ZiaCore & core);
-		virtual ~ZiaObject();
+		inline ZiaObject(ZiaCore & core) : core(core) {}
+		virtual ~ZiaObject() {}
 	};
 
 }

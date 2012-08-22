@@ -8,10 +8,6 @@
 #pragma once
 #define __ZIACORE_H__
 
-#include <vector>
-
-#include "network/Listener.h"
-
 #include "ZiaDefine.h"
 #include "ZiaException.h"
 #include "Service.h"
@@ -23,15 +19,16 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	EXCEPTION_DECLARATION(ZiaCoreException, ZiaFatalException);
+	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaCoreException, ZiaFatalException);
 
-        class ZiaCore : public Service, public utils::Listener {
+        class ZiaCore : public Service {
 	protected:
 		typedef std::vector<ZiaWorker> Workers;
 		LoaderModule loaderModule;
 		LoaderService loaderService;
+		ServiceManager services;
 		Chain chain;
-		Workers units;
+		Workers workers;
 
         public:
                 ZiaCore();
@@ -40,8 +37,8 @@ namespace ZIA_API_NAMESPACE {
 		virtual const std::string & getName() const;
 		virtual void initialise() __throw __throw2(ZAN::ZiaServiceException, ZAN::ZiaCoreException);
 
-		virtual void onReceive(const utils::CharArray & request);
-		virtual void onWorkerFinish(ZiaWorkerUnit * unit);
+		virtual void onReceive(const Buffer & request);
+		virtual void onWorkerFinish(ZiaWorker * worker);
 
 		virtual const Chain & getChain() const;
 
