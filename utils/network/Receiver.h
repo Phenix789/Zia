@@ -9,18 +9,21 @@
 
 #include "Define.h"
 #include "buffer/Array.hpp"
+#include "Network.h"
 
-namespace utils {
-
-	class Socket;
+namespace network {
 
 	interface Receiver {
 	public:
-		Receiver(Socket & socket) {}
+		Receiver() {}
 		virtual ~Receiver() {}
 
 		virtual void onReceive(const utils::CharArray & buffer) = 0;
-		virtual void deconnect() = 0;
+		virtual void onDisconnect(NetworkDisconnect reason) = 0;
+
+		virtual void setCommunicator(Communicator * com) = 0;
+		virtual const Communicator * getCommunicator() const = 0;
+
 	};
 
 }
