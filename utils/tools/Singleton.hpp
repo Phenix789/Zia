@@ -13,7 +13,6 @@ namespace utils {
 	template<typename T>
 	abstract class Singleton {
 	private:
-		//static Mutex mutex;
 		static T * instance;
 
 	protected:
@@ -30,22 +29,16 @@ namespace utils {
 
 		static T * getInstance() {
 			if (instance == 0) {
-				//Locker(&Singleton::mutex);
-				if (instance == 0) {
-					instance = new T();
-					atexit(&__destroy_singleton<T>);
-				}
+				instance = new T();
+				atexit(&__destroy_singleton<T>);
 			}
 			return instance;
 		}
 
 		static void destroy() {
 			if (instance) {
-				//Locker(&Singleton::mutex);
-				if (instance) {
-					delete instance;
-					instance = 0;
-				}
+				delete instance;
+				instance = 0;
 			}
 		}
 
@@ -60,5 +53,3 @@ namespace utils {
 	}
 
 }
-
-#endif

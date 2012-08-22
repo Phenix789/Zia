@@ -30,6 +30,16 @@ namespace utils {
 
 }
 
+#define EXCEPTION_DECLARATION_INLINE(name, extend, message)			\
+class name : public extend {							\
+public:										\
+	inline name(const std::string & error = "") throw ()			\
+		: extend(message) {}						\
+	inline virtual ~name() throw () {}					\
+}										\
+
+#define EXCEPTION_DECLARATION_INLINE_ERROR(name, extend) EXCEPTION_DECLARATION_INLINE(name, extend, error)
+
 #define EXCEPTION_DECLARATION(name, extend)					\
 class name : public extend {							\
 public:										\
