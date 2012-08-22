@@ -14,7 +14,7 @@
 
 namespace utils {
 
-	EXCEPTION_DECLARATION(UnknowKeyException, Exception);
+	EXCEPTION_DECLARATION_INLINE(UnknowKeyException, Exception, "Unknow key : " + error);
 
 	class Collection {
 	public:
@@ -28,14 +28,17 @@ namespace utils {
 		inline virtual ~Collection();
 
 		inline bool hasKey(const std::string & key) const;
-		inline const Variant & getValue(const std::string & key) const __throw __throw1(UnknowKeyException);
-		inline Variant getValue(const std::string & key) __throw __throw1(UnknowKeyException);
+		inline const Variant & getValue(const std::string & key) const __throw __throw1(utils::UnknowKeyException);
+		inline Variant getValue(const std::string & key) __throw __throw1(utils::UnknowKeyException);
 		inline Variant getValue(const std::string & key, Variant defaultValue);
 		inline int count() const;
 		inline const Map & getMap() const;
 
 		inline void setValue(const std::string & key, const Variant & value);
 		inline void setValue(const std::string & key, Variant value);
+
+		inline const Variant & operator [](const std::string & key) const __throw __throw1(utils::UnknowKeyException);
+		inline Variant & operator [](const std::string & key);
 
 	};
 
@@ -56,7 +59,7 @@ bool utils::Collection::hasKey(const std::string & key) const {
 }
 
 const utils::Variant & utils::Collection::getValue(const std::string & key) const {
-	Map::iterator it = collection.find(key);
+	Map::const_iterator it = collection.find(key);
 	if (it != collection.end()) {
 		return it->second;
 	}
@@ -93,4 +96,16 @@ void utils::Collection::setValue(const std::string & key, const Variant & value)
 
 void utils::Collection::setValue(const std::string& key, Variant value) {
 	collection[key] = value;
+}
+
+utils::Variant & utils::Collection::operator [](const std::string & key) {
+	return collection[key];
+}
+
+const utils::Variant & utils::Collection::operator [](const std::string & key) const {
+	Map::const_iterator it = collection.find(key);
+	if (it != collection.end()) {
+		return it->second;
+	}
+	throw UnknowKeyException(key);
 }
