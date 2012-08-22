@@ -23,7 +23,7 @@ namespace ZIA_API_NAMESPACE {
 		utils::CharArray & buffer;
 
 	public:
-		Request(ZiaCore & core, utils::CharArray & buffer);
+		Request(ZiaCore & core);
 		virtual ~Request();
 
 		/*GETTER*/
