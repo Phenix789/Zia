@@ -28,5 +28,3 @@ namespace utils {
 	};
 
 }
-
-#endif

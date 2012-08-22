@@ -58,5 +58,3 @@ namespace utils {
 	void * __thread_start(void * data);
 
 }
-
-#endif
