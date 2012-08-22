@@ -10,6 +10,7 @@
 #include "Define.h"
 #include "buffer/Array.hpp"
 #include "Network.h"
+#include "Communicator.h"
 
 namespace network {
 

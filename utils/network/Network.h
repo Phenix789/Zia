@@ -21,4 +21,6 @@ namespace network {
 		ND_UNKNOW
 	};
 
+	EXCEPTION_DECLARATION_INLINE_ERROR(NetworkException, utils::Exception);
+
 }

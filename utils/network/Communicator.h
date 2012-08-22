@@ -14,7 +14,7 @@ namespace network {
 
 	interface Communicator {
 	public:
-		const unsigned int ALL = static_cast<unsigned int>(-1);
+		static const unsigned int ALL = static_cast<unsigned int>(-1);
 
 	public:
 		Communicator() {}

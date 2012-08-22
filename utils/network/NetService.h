@@ -12,8 +12,6 @@
 
 namespace network {
 
-	EXCEPTION_DECLARATION(NetworkException, utils::Exception);
-
 	class NetService {
 	public:
 		static const unsigned int ALL = static_cast<unsigned int>(-1);
@@ -23,7 +21,7 @@ namespace network {
 		virtual ~NetService();
 
 		void listen(Listener * listener, int port) __throw __throw1(network::NetworkException);
-		Communicator & connect(Ip & port, Port & port) __throw __throw1(network::NetworkException);
+		Communicator & connect(Ip & ip, Port & port) __throw __throw1(network::NetworkException);
 		void close(Receiver & listener);
 
 		void flushEvent(unsigned int nb = NetService::ALL);
