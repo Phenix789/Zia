@@ -1,0 +1,43 @@
+.menu {
+    float: right;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    text-align: left;
+    margin: 5px 0 5px 5px;
+    padding: 4px;
+    width: 150px;
+}
+
+.menu li {
+    text-align: right;
+    padding: 0 15px 0 0;
+    list-style: none;
+}
+
+.navigation {
+
+}
+
+.navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    width: 100px;
+    display: inline;
+    float: left;
+    padding: 0;
+}
+
+.navigation ul li a {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.navigation ul li a.active {
+    color: #6F6;
+}
