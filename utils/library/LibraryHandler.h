@@ -21,7 +21,7 @@ typedef void * basic_handle;
 
 namespace utils {
 
-	EXCEPTION_DECLARATION(LibraryHandlerException, utils::Exception);
+	EXCEPTION_DECLARATION_INLINE_ERROR(LibraryHandlerException, utils::Exception);
 
 	class LibraryHandler {
 	protected:
@@ -64,7 +64,7 @@ void utils::LibraryHandler::loadLib(const std::string & fileName) {
 	dlhandle = LoadLibrary(wideFileName);
 	delete [] wideFileName;
 	if (!dlhandle) {
-		throw LibraryHandleException("Cannot load library " + fileName);
+		throw LibraryHandlerException("Cannot load library " + fileName);
 	}
 }
 
@@ -76,7 +76,7 @@ void utils::LibraryHandler::closeLib() {
 }
 
 template<typename T>
-T utils::LibraryHandler<T>::getFunction(const std::string & funcName) const {
+T utils::LibraryHandler::getFunction(const std::string & funcName) const {
 	if (dlhandle) {
 		T func = NULL;
 		func = reinterpret_cast<T> (GetProcAddress(dlhandle, funcName.c_str()));
@@ -94,7 +94,7 @@ void utils::LibraryHandler::loadLib(const std::string & fileName) {
 	closeLib();
 	dlhandle = dlopen(fileName.c_str(), RTLD_LAZY);
 	if (!dlhandle) {
-		throw LibraryHandleException(dlerror());
+		throw LibraryHandlerException(dlerror());
 	}
 }
 
@@ -106,7 +106,7 @@ void utils::LibraryHandler::closeLib() {
 }
 
 template<typename T>
-T utils::LibraryHandler<T>::getFunction(const std::string & funcName) const {
+T utils::LibraryHandler::getFunction(const std::string & funcName) const {
 	if (dlhandle) {
 		T func = NULL;
 		func = reinterpret_cast<T> (dlsym(dlhandle, funcName.c_str()));
