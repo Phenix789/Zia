@@ -41,3 +41,7 @@
 .navigation ul li a.active {
     color: #6F6;
 }
+
+.git {
+    font-style: italic;
+}
