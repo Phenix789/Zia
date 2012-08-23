@@ -18,6 +18,10 @@
 #define ZIA_API_NAMESPACE ZiaAPI
 #define ZAN ZIA_API_NAMESPACE
 
+#define ZIA_API_VERSION_MAJOR 0
+#define ZIA_API_VERSION_MINOR 1
+#define ZIA_API_VERSION 0.1
+
 namespace ZIA_API_NAMESPACE {
 
 	typedef utils::CharArray Buffer;

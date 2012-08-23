@@ -1,13 +1,13 @@
 /**
- *
- *
- *
+ * @file Define.h
+ * @brief Basic define for header information
  */
 
 #pragma once
 #define	__DEFINE_H__
 
 /**
+ * @def __delegate
  * @brief Information sur la gestion de la memoire
  * __delegate est un indicateur pour la gestion memoire, il a deux significations :
  *  - En retour de fonction/method, il informe que le pointeur retourné est a la responsabilité de l'appelant.
@@ -16,6 +16,7 @@
 #define __delegate
 
 /**
+ * @def __static
  * @brief Information sur la gestion de la memoire
  * Une fonction/method retournant un parametre static informe que celui ci est interne a la structure.
  * Cela peut avoir plusieurs effet tels que:
@@ -24,10 +25,20 @@
  */
 #define __static
 
+/**
+ * @def interface
+ * @brief Definit une interface
+ */
 #define interface class
+
+/**
+ * @def abstract
+ * @brief Definit une class abstraite
+ */
 #define abstract
 
 /**
+ * @def __throw
  * @brief La fonction/method est suceptible de lancer une exception. Le nom de l'exception lancé peut etre specifié
  */
 #define __throw
