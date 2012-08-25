@@ -8,11 +8,11 @@
 #define	__PHPMODULE_H__
 
 #include "ZiaDefine.h"
-#include "Module.h"
+#include "CGIModule.h"
 
 namespace ZIA_API_NAMESPACE {
 
-	class PhpModule : public Module {
+	class PhpModule : public CGIModule {
 	public:
 		PhpModule(ZiaCore & core);
 		virtual ~PhpModule();

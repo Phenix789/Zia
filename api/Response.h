@@ -14,7 +14,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-        class Response {
+	class Response {
 	protected:
 		ResponseCode code;
 		utils::Collection headers;
@@ -41,8 +41,8 @@ namespace ZIA_API_NAMESPACE {
 		Response & addHeader(const std::string & name, const std::string & value);
 		Response & addHeader(const std::string & name, const utils::Variant & value);
 		Response & removeHeader(const std::string & name) __throw;
-		Response & cleanHeaders();
+		Response & clearHeaders();
 
-        };
+	};
 
 }
