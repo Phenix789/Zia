@@ -10,7 +10,6 @@
 
 #include "collection/Collection.hpp"
 #include "ZiaDefine.h"
-#include "ZiaObject.h"
 
 namespace ZIA_API_NAMESPACE {
 
@@ -23,7 +22,7 @@ namespace ZIA_API_NAMESPACE {
 		Buffer & buffer;
 
 	public:
-		Request(ZiaCore & core);
+		Request(Buffer & buffer);
 		virtual ~Request();
 
 		/*GETTER*/

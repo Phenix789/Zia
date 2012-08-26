@@ -20,6 +20,7 @@ namespace ZIA_API_NAMESPACE {
 	protected:
 		typedef std::map<std::string, Service *> ServiceMap;
 		ServiceMap services;
+		const std::string name;
 
 	public:
 		ServiceManager(ZiaCore & core);
@@ -39,4 +40,32 @@ namespace ZIA_API_NAMESPACE {
 
 	};
 
+}
+
+/*Template implementation*/
+
+template<typename T>
+bool ZAN::ServiceManager::hasService(const std::string & serviceName) const {
+	ServiceMap::iterator it = services.find(serviceName);
+	if (it != services.end()) {
+		T * t = dynamic_cast<T *>(it->second);
+		if (t) {
+			return true;
+		}
+		throw ZiaBadCastServiceException(serviceName);
+	}
+	throw ZiaUnknowServiceException(serviceName);
+}
+
+template<typename T>
+T & ZAN::ServiceManager::getService(const std::string & serviceName) {
+	ServiceMap::iterator it = services.find(serviceName);
+	if (it != services.end()) {
+		T * t = dynamic_cast<T *>(it->second);
+		if (t) {
+			return *t;
+		}
+		throw ZiaBadCastServiceException(serviceName);
+	}
+	throw ZiaUnknowServiceException(serviceName);
 }

@@ -77,6 +77,7 @@ utils::Variant::Variant(const T & value)
 template<typename T>
 utils::Variant & utils::Variant::operator =(const T & value) {
 	this->value = utils::to_string(value);
+	return *this;
 }
 
 template<typename T>
@@ -97,6 +98,7 @@ namespace utils {
 	template<>
 	Variant & utils::Variant::operator =(const std::string & value) {
 		this->value = value;
+		return *this;
 	}
 
 	template<>

@@ -27,6 +27,7 @@ namespace ZIA_API_NAMESPACE {
 		LoaderService loaderService;
 		ServiceManager services;
 		Chain chain;
+		const std::string name;
 
         public:
                 ZiaCore();

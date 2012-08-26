@@ -31,22 +31,22 @@ namespace ZIA_API_NAMESPACE {
 	typedef std::map<std::string, std::string> ParameterMap;
 
         enum ProtocolVersion {
-                HTTP_1_0,
-                HTTP_1_1,
-                HTTP_2_0, //Developpement futur
-		HTTP_ERROR = -1
+                PV_HTTP_1_0,
+                PV_HTTP_1_1,
+                PV_HTTP_2_0, //Developpement futur
+		PV_HTTP_ERROR = -1
         };
 
         enum RequestMethod {
-                OPTIONS,
-                GET,
-                PUT,
-                POST,
-                DELETE,
-                HEAD,
-                TRACE,
-                CONNECT,
-		ERROR = -1
+                RM_OPTIONS,
+                RM_GET,
+                RM_PUT,
+                RM_POST,
+                RM_DELETE,
+                RM_HEAD,
+                RM_TRACE,
+                RM_CONNECT,
+		RM_ERROR = -1
         };
 
         enum ResponseCode {
