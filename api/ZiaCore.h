@@ -15,7 +15,6 @@
 #include "Module.h"
 #include "Chain.h"
 #include "Loader.h"
-#include "ZiaWorker.h"
 
 namespace ZIA_API_NAMESPACE {
 
