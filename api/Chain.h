@@ -37,7 +37,7 @@ namespace ZIA_API_NAMESPACE {
 
 		Chain & addFilter(Filter __delegate * filter, Position pos = End, const std::string & filterName = "") __throw __throw1(ZAN::ZiaUnknowModuleException);
 		Chain & removeFilter(const std::string & filterName) __throw __throw1(ZAN::ZiaUnknowFilterException);
-		Chain & setEnableFilter(const std::string & filterName) __throw __throw1(ZAN::ZiaUnknowFilterException);
+		Chain & setEnableFilter(const std::string & filterName, bool enable) __throw __throw1(ZAN::ZiaUnknowFilterException);
 
                 /*Module*/
                 bool hasModule(const std::string & moduleName) const;

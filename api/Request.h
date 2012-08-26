@@ -14,7 +14,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class Request {
+	class Request: public ZiaObject {
 	protected:
 		std::string ressource;
 		RequestMethod method;
@@ -23,7 +23,7 @@ namespace ZIA_API_NAMESPACE {
 		Buffer & buffer;
 
 	public:
-		Request(ZiaCore & core);
+		Request(ZiaCore & core, Buffer &buffer);
 		virtual ~Request();
 
 		/*GETTER*/
