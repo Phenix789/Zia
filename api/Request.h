@@ -13,7 +13,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class Request {
+	class Request: public ZiaObject {
 	protected:
 		std::string ressource;
 		RequestMethod method;
