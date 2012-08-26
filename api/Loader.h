@@ -85,7 +85,7 @@ template<typename T>
 void ZAN::Loader<T>::save(const std::string & name, Handler<T> * handler) {
 	typename HandlerMap::iterator it = handlers.find(name);
 	if (it != handlers.end()) {
-		delete *it;
+		delete it->second;
 	}
 	handlers[name] = handler;
 }

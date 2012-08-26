@@ -1531,7 +1531,10 @@ PREDEFINED             = \
     "__throw3(e1, e2, e3)=" \
     "__throw4(e1, e2, e3, e4)=" \
     "interface=class" \
-    "ZIA_API_NAMESPACE=ZiaAPI"
+    "ZIA_API_NAMESPACE=ZiaAPI" \
+    "EXCEPTION_DECLARATION_INLINE(name, extend, message)=class name : public extend { public: inline name(const std::string & error = "") throw () : extend(message) {} inline virtual ~name() throw () {} }" \
+    "EXCEPTION_DECLARATION_INLINE_ERROR(name, extend)=EXCEPTION_DECLARATION_INLINE(name, extend, error)" \
+    "EXCEPTION_DECLARATION(name, extend)=class name : public extend { public: name(const std::string & error = "") throw (); virtual ~name() throw (); }"
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then
 # this tag can be used to specify a list of macro names that should be expanded.

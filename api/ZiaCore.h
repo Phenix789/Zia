@@ -23,12 +23,10 @@ namespace ZIA_API_NAMESPACE {
 
         class ZiaCore : public Service {
 	protected:
-		typedef std::vector<ZiaWorker> Workers;
 		LoaderModule loaderModule;
 		LoaderService loaderService;
 		ServiceManager services;
 		Chain chain;
-		Workers workers;
 
         public:
                 ZiaCore();
