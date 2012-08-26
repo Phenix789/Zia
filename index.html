@@ -6,6 +6,7 @@
 	<meta name="description" content="Zia : API Tree Friends" />
 	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/perso.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap/css/bootstrap.css">
 	<title>Zia</title>
     </head>
     <body>
@@ -15,14 +16,31 @@
 		<a id="forkme_banner" href="https://github.com/Phenix789/Zia">View on GitHub</a>
 		<h1 id="project_title">Zia</h1>
 		<h2 id="project_tagline">API Tree Friends</h2>
-		<div class="navigation">
-		    <ul>
-			<li><a href="index.html" class="active">Home</a></li>
-			<li><a href="api.html">API</a></li>
-			<li><a href="modules.html">Modules</a></li>
-			<li><a href="services.html">Services</a></li>
-		    </ul>
-		</div>
+		<div class="navbar navbar-fixed-top">  
+			<div class="navbar-inner">  
+				<div class="container">  
+					<ul class="nav">  
+						<li class="active"> 
+							<a class="brand" href="http://erwan-touba.localhost/">Home</a>  
+						</li> 
+						<li><a href="#">About</a></li>  
+						<li><a href="#">Portfolio</a></li>  
+						<li><a data-toggle="modal" href="#myModal" >Contact</a></li>
+						<li class="dropdown" id="accountmenu">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">social<b class="caret"></b></a>
+							<ul class="dropdown-menu">  
+								<li ><a href="#"><img src="imgs/site/icon_fb.jpg" alt="icon facebook" style="margin-right:10px;"/>Facebook</a></li>  
+								<li><a href="#"><img src="imgs/site/icon_tw.png" alt="icon twitter" style="margin-right:10px;"/>Twitter</a></li>  
+								<li><a href="#">flick</a></li>  
+							</ul>  
+						</li>  
+					</ul>  
+				</li>  
+			</ul>  
+			
+		</div> 
+		    
+	
 		<section id="downloads">
 		    <a class="zip_download_link" href="https://github.com/Phenix789/Zia/zipball/master">Download this project as a .zip file</a>
 		    <a class="tar_download_link" href="https://github.com/Phenix789/Zia/tarball/master">Download this project as a tar.gz file</a>
