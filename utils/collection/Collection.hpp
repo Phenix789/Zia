@@ -36,6 +36,8 @@ namespace utils {
 
 		inline void setValue(const std::string & key, const Variant & value);
 		inline void setValue(const std::string & key, Variant value);
+		inline void removeValue(const std::string & key);
+		inline void clear();
 
 		inline const Variant & operator [](const std::string & key) const __throw __throw1(utils::UnknowKeyException);
 		inline Variant & operator [](const std::string & key);
@@ -94,8 +96,19 @@ void utils::Collection::setValue(const std::string & key, const Variant & value)
 	collection[key] = value;
 }
 
-void utils::Collection::setValue(const std::string& key, Variant value) {
+void utils::Collection::setValue(const std::string & key, Variant value) {
 	collection[key] = value;
+}
+
+void utils::Collection::removeValue(const std::string & key) {
+	Map::iterator it = collection.find(key);
+	if (it != collection.end()) {
+		collection.erase(it);
+	}
+}
+
+void utils::Collection::clear() {
+	collection.clear();
 }
 
 utils::Variant & utils::Collection::operator [](const std::string & key) {
