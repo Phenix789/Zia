@@ -17,8 +17,8 @@ namespace network {
 		static const unsigned int ALL = static_cast<unsigned int>(-1);
 
 	public:
-		NetService();
-		virtual ~NetService();
+		NetService(){}
+		virtual ~NetService(){}
 
 		void listen(Listener * listener, int port) __throw __throw1(network::NetworkException);
 		Communicator & connect(Ip & ip, Port & port) __throw __throw1(network::NetworkException);
