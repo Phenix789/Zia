@@ -18,21 +18,21 @@ namespace ZIA_API_NAMESPACE {
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaDecodeException, ZiaException);
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaEncodeException, ZiaException);
 
-	inteface HTTPDecode : public Service {
+	interface HTTPDecode : public Service {
 	public:
-	  HTTPDecode(ZiaCore & core) : Service(core) {}
-	  virtual ~HTTPDecode() {}
+		HTTPDecode(ZiaCore & core) : Service(core) {}
+		virtual ~HTTPDecode() {}
 
-	  virtual void decode(Request & request, Buffer & buffer) __throw __throw1(ZAN::ZiaDecodeException) = 0;
+		virtual void decode(Request & request, Buffer & buffer) __throw __throw1(ZAN::ZiaDecodeException) = 0;
 
 	};
 
 	interface HTTPEncode : public Service {
 	public:
-	  HTTPEncode(ZiaCore & core) : Service(core) {}
-	  virtual ~HTTPEncode() {}
+		HTTPEncode(ZiaCore & core) : Service(core) {}
+		virtual ~HTTPEncode() {}
 
-	  virtual void encode(Response & response, Buffer & buffer) __throw __throw1(ZAN::ZiaEncodeException) = 0;
+		virtual void encode(Response & response, Buffer & buffer) __throw __throw1(ZAN::ZiaEncodeException) = 0;
 
 	};
 

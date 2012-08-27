@@ -40,7 +40,7 @@ namespace ZIA_API_NAMESPACE {
 		utils::Collection & getHeaders();
 
 		/*SETTER*/
-		Request & setRessource(const std::string & ressources);
+		Request & setRessource(const std::string & ressource);
 		Request & setMethod(RequestMethod method);
 		Request & setProtocolVersion(ProtocolVersion version);
 		Request & setBuffer(Buffer & buffer);
