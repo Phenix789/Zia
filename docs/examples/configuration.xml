@@ -13,6 +13,8 @@
 	    <service name="" />
 	</dependency>
     </module>
+    <module name="module_decode" enable="false" filter="zia_decode"/>
+    <!-- Un autre module / Et une autre façon de déclarer un module-->	
 </modules>
 
 <services>
