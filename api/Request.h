@@ -9,6 +9,7 @@
 #define __REQUEST_H__
 
 #include "collection/Collection.hpp"
+#include "Receiver.h"
 #include "ZiaDefine.h"
 
 namespace ZIA_API_NAMESPACE {
@@ -19,10 +20,11 @@ namespace ZIA_API_NAMESPACE {
 		RequestMethod method;
 		ProtocolVersion version;
 		utils::Collection headers;
+		network::Receiver & user;
 		Buffer & buffer;
 
 	public:
-		Request(Buffer & buffer);
+		Request(network::Receiver & user, Buffer & buffer);
 		virtual ~Request();
 
 		/*GETTER*/
@@ -31,6 +33,7 @@ namespace ZIA_API_NAMESPACE {
 		const std::string & getStringMethod() const;
 		ProtocolVersion getProtocolVersion() const;
 		const std::string & getStringProtocolVersion() const;
+		const Receiver & getReceiver() const;
 		const Buffer & getBuffer() const;
 
 		bool hasHeader(const std::string & key) const;
