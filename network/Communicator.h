@@ -20,11 +20,11 @@ namespace network {
 		Communicator() {}
 		virtual ~Communicator() {}
 
-		virtual Ip & getIp() const = 0;
-		virtual Port & getPort() const = 0;
+		virtual Ip getIp() const = 0;
+		virtual Port getPort() const = 0;
 
-		virtual Ip & getPeerIp() const = 0;
-		virtual Port & getPeerPort() const = 0;
+		virtual Ip getPeerIp() const = 0;
+		virtual Port getPeerPort() const = 0;
 
 		virtual int send(const utils::CharArray & buffer, unsigned int length = Communicator::ALL, unsigned int offset = 0) = 0;
 
