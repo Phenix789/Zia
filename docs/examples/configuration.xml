@@ -1,3 +1,4 @@
+<!-- Chaine d'exécution -->
 <chain>
     <filter name="zia_decode" enable="on" />
     <filter name="zia_valide" enable="on" />
@@ -5,6 +6,7 @@
     <filter name="zia_encode" enable="on" />
 </chain>
 
+<!-- Déclaration d'un module -->
 <modules>
     <module name="" enable="" filter="">
 	<argument name="" value="" />
@@ -14,15 +16,17 @@
 	</dependency>
     </module>
     <module name="module_decode" enable="false" filter="zia_decode"/>
-    <!-- Un autre module / Et une autre façon de déclarer un module-->	
+    <!-- Un autre module / Et une autre façon de déclarer un module -->	
 </modules>
 
+<!-- Déclaration d'un service  -->
 <services>
     <service name="zia_network">
 	<argument name="port" value="80" />
     </service>
 </services>
 
+<!-- Déclaration des librairies -->
 <libraries>
     <library name="XXX" path="./plugins" />
     <!-- chargera la library libXXX.so sur linux et XXX.dll sur windows -->
