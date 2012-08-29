@@ -10,15 +10,21 @@
 #include "ZiaDefine.h"
 #include "Service.h"
 
+#define ZIA_SERVICE_LOGGER "logger"
+
 namespace ZIA_API_NAMESPACE {
 
-	class LoggerService : public Service {
-	public:
-		LoggerService(ZiaCore & core);
-		virtual ~LoggerService();
+	class Logger;
 
-		virtual const std::string & getName() const;
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+	interface LoggerService : public Service {
+	public:
+		LoggerService(ZiaCore & core) : Service(core) {}
+		virtual ~LoggerService() {}
+
+		virtual Logger message() = 0;
+		virtual Logger warning() = 0;
+		virtual Logger error() = 0;
+		virtual Logger debug() = 0;
 
 	};
 

@@ -15,31 +15,31 @@
 #include "Module.h"
 #include "Chain.h"
 #include "Loader.h"
+#include "Listener.h"
+#include "Receiver.h"
+
+#define ZIA_SERVICE_ZIA_CORE "zia_core"
 
 namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaCoreException, ZiaFatalException);
 
-        class ZiaCore : public Service {
-	protected:
-		LoaderModule loaderModule;
-		LoaderService loaderService;
-		ServiceManager services;
-		Chain chain;
-		const std::string name;
-
+        interface ZiaCore : public Service, public network::Listener {
         public:
-                ZiaCore();
-                virtual ~ZiaCore();
+                ZiaCore() : Service(*this) {}
+                virtual ~ZiaCore() {}
 
-		virtual const std::string & getName() const;
+		virtual const std::string & getName() const = 0;
 
-		virtual void initialise() __throw __throw2(ZAN::ZiaServiceException, ZAN::ZiaCoreException);
-		virtual void run();
+		virtual void initialise() = 0;
+		virtual void run() = 0;
 
-		virtual const Chain & getChain() const;
+		virtual void listen(int port) __throw;
+		virtual network::Receiver * onAccept(network::Communicator * com) = 0;
+		virtual void onReceive(network::Receiver & receiver, Buffer & buffer) = 0;
 
-
+		virtual Chain & getChain() = 0;
+		virtual ServiceManager & getServiceManager() = 0;
 
         };
 

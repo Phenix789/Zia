@@ -11,6 +11,8 @@
 #include "ZiaException.h"
 #include "Service.h"
 
+#define ZIA_SERVICE_SERVICE_MANAGER "service_manager"
+
 namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION(ZiaUnknowServiceException, ZiaServiceException);

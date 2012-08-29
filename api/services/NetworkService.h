@@ -9,16 +9,19 @@
 
 #include "ZiaDefine.h"
 #include "Service.h"
+#include "NetService.h"
+
+#define ZIA_SERVICE_NETWORK "network"
 
 namespace ZIA_API_NAMESPACE {
 
-	class NetworkService : public Service {
+	interface NetworkService : public Service {
 	public:
-		NetworkService(ZiaCore & core);
-		virtual ~NetworkService();
+		NetworkService(ZiaCore & core) : Service(core) {}
+		virtual ~NetworkService() {}
 
-		virtual const std::string & getName() const;
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+		virtual network::NetService & getCoreNetService() = 0;
+		virtual network::NetService __delegate * getNewNetService() = 0;
 
 	};
 
