@@ -29,13 +29,9 @@ namespace ZIA_API_NAMESPACE {
                 ZiaCore() : Service(*this) {}
                 virtual ~ZiaCore() {}
 
-		virtual const std::string & getName() const = 0;
-
-		virtual void initialise() = 0;
 		virtual void run() = 0;
 
 		virtual void listen(int port) __throw;
-		virtual network::Receiver * onAccept(network::Communicator * com) = 0;
 		virtual void onReceive(network::Receiver & receiver, Buffer & buffer) = 0;
 
 		virtual Chain & getChain() = 0;

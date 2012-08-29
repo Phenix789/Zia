@@ -21,7 +21,7 @@ namespace ZIA_API_NAMESPACE {
 
 		virtual const std::string & getName() const = 0;
 
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException) = 0;
+		virtual void initialize() __throw __throw1(ZAN::ZiaServiceException) = 0;
 
         };
 
