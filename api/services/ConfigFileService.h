@@ -10,6 +10,7 @@
 #include "ZiaDefine.h"
 #include "ZiaException.h"
 #include "Service.h"
+#include "ZiaConfigFile.h"
 
 #define ZIA_SERVICE_CONFIG_FILE "config_file"
 
@@ -19,7 +20,7 @@ namespace ZIA_API_NAMESPACE {
 	protected:
 
 	public:
-		ConfigFileService(ZiaCore & core) : Service(core) {}
+		ConfigFileService() : Service(core) {}
 		virtual ~ConfigFileService() {}
 
 		virtual ZiaConfigFile & getConfigFile() = 0;

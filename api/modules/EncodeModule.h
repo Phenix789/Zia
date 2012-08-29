@@ -14,7 +14,7 @@ namespace ZIA_API_NAMESPACE {
 
 	class EncodeModule : public Module {
 	public:
-		EncodeModule(ZiaCore & core);
+		EncodeModule();
 		virtual ~EncodeModule();
 
                 virtual const std::string & getName() const;
@@ -22,7 +22,7 @@ namespace ZIA_API_NAMESPACE {
                 virtual bool isEnable() const;
 		virtual void setEnable(bool enable);
 
-                virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException);
+                virtual bool initialize(ZiaCore * core) __throw __throw1(ZAN::ZiaModuleException);
                 virtual bool check(const Request & request);
                 virtual void execute(Request & request, Response & response) __throw __throw1(ZAN::ZiaModuleException);
 

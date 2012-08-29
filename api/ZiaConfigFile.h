@@ -13,6 +13,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	ZIA_CORE
+
 	/**
 	 * @class CFLibrary
 	 */

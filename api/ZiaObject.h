@@ -6,6 +6,7 @@
 
 #pragma once
 #define	__ZIAOBJECT_H__
+#warning "Include deprecated ZiaObject"
 
 #include "ZiaDefine.h"
 

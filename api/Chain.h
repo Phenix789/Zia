@@ -10,7 +10,6 @@
 
 #include "ZiaDefine.h"
 #include "ZiaException.h"
-#include "ZiaObject.h"
 #include "Module.h"
 #include "Filter.h"
 #include "Request.h"
@@ -18,17 +17,19 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	ZIA_CORE
+
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaChainException, ZiaException);
 	EXCEPTION_DECLARATION_INLINE(ZiaUnknowFilterException, ZiaException, "Unknow filter " + error);
 
-        class Chain : public ZiaObject {
+        class Chain {
 	protected:
 		typedef std::list<Filter *> ListFilter;
 		ListFilter filters;
 		bool init;
 
         public:
-                Chain(ZiaCore & core);
+                Chain();
                 virtual ~Chain();
 
                 /*Filter*/
@@ -37,7 +38,6 @@ namespace ZIA_API_NAMESPACE {
 
 		Chain & addFilter(Filter __delegate * filter, Position pos = End, const std::string & filterName = "") __throw __throw1(ZAN::ZiaUnknowModuleException);
 		Chain & removeFilter(const std::string & filterName) __throw __throw1(ZAN::ZiaUnknowFilterException);
-		Chain & setEnableFilter(const std::string & filterName, bool enable) __throw __throw1(ZAN::ZiaUnknowFilterException);
 
                 /*Module*/
                 bool hasModule(const std::string & moduleName) const;
@@ -45,11 +45,9 @@ namespace ZIA_API_NAMESPACE {
 
                 Chain & addModule(Module __delegate * module, const std::string & filterName, Position pos = End, const std::string & moduleName = "") __throw __throw1(ZAN::ZiaUnknowModuleException);
                 Chain & removeModule(const std::string & moduleName) __throw __throw1(ZAN::ZiaUnknowModuleException);
-		Chain & setEnableModule(const std::string & moduleName, bool enable) __throw __throw1(ZAN::ZiaUnknowModuleException);
 
                 /*Execution*/
-                bool initialize() __throw;
-		bool isInitialized() const;
+                bool initialize(ZiaCore * core) __throw;
 
                 void execute(Request & request, Response & response) __throw;
 

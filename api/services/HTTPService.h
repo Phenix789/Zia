@@ -23,7 +23,7 @@ namespace ZIA_API_NAMESPACE {
 
 	interface HTTPDecode : public Service {
 	public:
-		HTTPDecode(ZiaCore & core) : Service(core) {}
+		HTTPDecode() {}
 		virtual ~HTTPDecode() {}
 
 		virtual void decode(Request & request, Buffer & buffer) __throw __throw1(ZAN::ZiaDecodeException) = 0;
@@ -32,7 +32,7 @@ namespace ZIA_API_NAMESPACE {
 
 	interface HTTPEncode : public Service {
 	public:
-		HTTPEncode(ZiaCore & core) : Service(core) {}
+		HTTPEncode() {}
 		virtual ~HTTPEncode() {}
 
 		virtual void encode(Response & response, Buffer & buffer) __throw __throw1(ZAN::ZiaEncodeException) = 0;

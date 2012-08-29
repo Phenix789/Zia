@@ -47,7 +47,7 @@ namespace ZIA_API_NAMESPACE {
 		utils::Collection meta_vars;
 
 	public:
-		CGIModule(ZiaCore & core);
+		CGIModule();
 		virtual ~CGIModule();
 
 		virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException);

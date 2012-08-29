@@ -14,7 +14,7 @@
 
 namespace ZIA_API_NAMESPACE {
 
-	class ZiaCore;
+	ZIA_CORE
 
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaLoadException, ZiaException);
 
@@ -26,7 +26,7 @@ namespace ZIA_API_NAMESPACE {
 		Handler() {}
 		virtual ~Handler() {}
 
-		virtual inline T __delegate * load(ZiaCore & core) = 0;
+		virtual inline T __delegate * load() = 0;
 
 	};
 
@@ -55,10 +55,10 @@ namespace ZIA_API_NAMESPACE {
 			handlers[name] = handler;
 		}
 
-		T __delegate * load(const std::string & name, ZiaCore & core) __throw __throw1(ZAN::ZiaLoadException) {
+		T __delegate * load(const std::string & name) __throw __throw1(ZAN::ZiaLoadException) {
 			typename HandlerMap::iterator it = handlers.find(name);
 			if (it != handlers.end()) {
-				return it->second->load(core);
+				return it->second->load();
 			}
 			throw ZiaLoadException(name);
 		}
@@ -78,7 +78,7 @@ namespace ZIA_API_NAMESPACE {
 #define HANDLER_DECLARATION(base, real)						\
 class HANDLER_CLASS(base, real) : public ZAN::base {				\
 public:										\
-	virtual inline typename base::Base __delegate * load(ZiaCore & core) {	\
+	virtual inline typename base::Base __delegate * load() {	\
 		return new real(core);						\
 	}									\
 }										\

@@ -13,10 +13,10 @@
 #define	ZIA_MODULE_HTTP_DECODE "http_decode"
 
 namespace ZIA_API_NAMESPACE {
-	
+
 	interface DecodeModule : public Module {
 	public:
-		DecodeModule(ZiaCore & core) : Module(core) {}
+		DecodeModule() {}
 		virtual ~DecodeModule() {}
 
 	};

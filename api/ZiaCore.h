@@ -26,9 +26,10 @@ namespace ZIA_API_NAMESPACE {
 
         interface ZiaCore : public Service, public network::Listener {
         public:
-                ZiaCore() : Service(*this) {}
+                ZiaCore() {}
                 virtual ~ZiaCore() {}
 
+		virtual void initialize() __throw = 0;
 		virtual void run() = 0;
 
 		virtual void listen(int port) __throw;

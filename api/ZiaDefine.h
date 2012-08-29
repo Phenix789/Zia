@@ -22,6 +22,8 @@
 #define ZIA_API_VERSION_MINOR 1
 #define ZIA_API_VERSION 0.1
 
+#define ZIA_CORE class ZiaCore;
+
 namespace ZIA_API_NAMESPACE {
 
 	typedef utils::CharArray Buffer;

@@ -8,13 +8,14 @@
 #define	__FILTER_H__
 
 #include "ZiaDefine.h"
-#include "ZiaObject.h"
 #include "ZiaException.h"
 #include "Module.h"
 #include "Request.h"
 #include "Response.h"
 
 namespace ZIA_API_NAMESPACE {
+
+	ZIA_CORE
 
 	enum Position {
 		Begin,
@@ -25,22 +26,18 @@ namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION_INLINE(ZiaUnknowModuleException, ZiaException, "Unknow module " + error);
 
-	class Filter : public ZiaObject {
+	class Filter {
 	protected:
 		typedef std::list<Module *> ListModule;
-		std::string name;
+		const std::string name;
 		ListModule modules;
-		bool enable;
 		bool init;
 
 	public:
-		Filter(ZiaCore & core, const std::string & name, bool enable = true);
+		Filter(const std::string & name);
 		virtual ~Filter();
 
 		const std::string & getName() const;
-
-		bool isEnable() const;
-		void setEnable(bool enable);
 
                 bool hasModule(const std::string & moduleName) const;
                 Module & getModule(const std::string & moduleName) const __throw __throw1(ZAN::ZiaUnknowModuleException);
@@ -49,8 +46,7 @@ namespace ZIA_API_NAMESPACE {
                 Filter & removeModule(const std::string & moduleName) __throw __throw1(ZAN::ZiaUnknowModuleException);
 		Filter & setEnableModule(const std::string & moduleName, bool enable) __throw __throw1(ZAN::ZiaUnknowModuleException);
 
-		bool initialize() __throw;
-		bool isInitialized() const;
+		bool initialize(ZiaCore * core) __throw;
 
 		void execute(Request & request, Response & response) __throw;
 

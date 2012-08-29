@@ -15,6 +15,8 @@
 
 namespace ZIA_API_NAMESPACE {
 
+	ZIA_CORE
+
 	EXCEPTION_DECLARATION(ZiaUnknowServiceException, ZiaServiceException);
 	EXCEPTION_DECLARATION(ZiaBadCastServiceException, ZiaServiceException);
 
@@ -25,20 +27,20 @@ namespace ZIA_API_NAMESPACE {
 		const std::string name;
 
 	public:
-		ServiceManager(ZiaCore & core);
+		ServiceManager();
 		virtual ~ServiceManager();
 
 		ServiceManager & addService(Service * __delegate service);
 		ServiceManager & removeService(std::string & serviceName) __throw __throw1(ZAN::ZiaUnknowServiceException);
 
 		virtual const std::string & getName() const;
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+		virtual void initialize(ZiaCore * core) __throw __throw1(ZAN::ZiaServiceException);
 
 		template<typename T>
 		bool hasService(const std::string & serviceName) const;
 
 		template<typename T>
-		T & getService(const std::string & serviceName) __throw __throw2(ZAN::ZiaUnknowServiceException, ZAN::ZiaBadCastServiceException);
+		T * getService(const std::string & serviceName) __throw __throw2(ZAN::ZiaUnknowServiceException, ZAN::ZiaBadCastServiceException);
 
 	};
 
@@ -60,12 +62,12 @@ bool ZAN::ServiceManager::hasService(const std::string & serviceName) const {
 }
 
 template<typename T>
-T & ZAN::ServiceManager::getService(const std::string & serviceName) {
+T * ZAN::ServiceManager::getService(const std::string & serviceName) {
 	ServiceMap::iterator it = services.find(serviceName);
 	if (it != services.end()) {
 		T * t = dynamic_cast<T *>(it->second);
 		if (t) {
-			return *t;
+			return t;
 		}
 		throw ZiaBadCastServiceException(serviceName);
 	}

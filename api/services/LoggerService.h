@@ -18,7 +18,7 @@ namespace ZIA_API_NAMESPACE {
 
 	interface LoggerService : public Service {
 	public:
-		LoggerService(ZiaCore & core) : Service(core) {}
+		LoggerService() {}
 		virtual ~LoggerService() {}
 
 		virtual Logger message() = 0;

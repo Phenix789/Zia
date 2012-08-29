@@ -20,7 +20,7 @@ namespace ZIA_API_NAMESPACE {
 
 	interface LibraryService : public Service {
 	public:
-		LibraryService(ZiaCore & core) : Service(core) {}
+		LibraryService() {}
 		virtual ~LibraryService() {}
 
 		utils::LibraryHandler & loadLibrary(const std::string & library) __throw __throw1(ZAN::ZiaLibraryException) = 0;

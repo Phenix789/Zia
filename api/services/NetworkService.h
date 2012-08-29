@@ -17,7 +17,7 @@ namespace ZIA_API_NAMESPACE {
 
 	interface NetworkService : public Service {
 	public:
-		NetworkService(ZiaCore & core) : Service(core) {}
+		NetworkService() {}
 		virtual ~NetworkService() {}
 
 		virtual network::NetService & getCoreNetService() = 0;
