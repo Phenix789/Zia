@@ -22,9 +22,6 @@
 #define ZIA_API_VERSION_MINOR 1
 #define ZIA_API_VERSION 0.1
 
-#define ZIA_SERVICE_ZIA_CORE "zia_core"
-#define ZIA_SERVICE_SERVICE_MANAGER "service_manager"
-
 namespace ZIA_API_NAMESPACE {
 
 	typedef utils::CharArray Buffer;

@@ -66,6 +66,7 @@ namespace ZIA_API_NAMESPACE {
 		virtual ~CFService();
 
 		const std::string & getName() const;
+		bool isEnable() const;
 
 		bool hasArgument(const std::string & name) const;
 		const utils::Variant & getArgument(const std::string & name) const __throw;

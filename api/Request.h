@@ -33,7 +33,7 @@ namespace ZIA_API_NAMESPACE {
 		const std::string & getStringMethod() const;
 		ProtocolVersion getProtocolVersion() const;
 		const std::string & getStringProtocolVersion() const;
-		const Receiver & getReceiver() const;
+		const network::Receiver & getReceiver() const;
 		const Buffer & getBuffer() const;
 
 		bool hasHeader(const std::string & key) const;

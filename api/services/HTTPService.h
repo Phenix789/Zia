@@ -13,6 +13,9 @@
 #include "Request.h"
 #include "Response.h"
 
+#define ZIA_SERVICE_HTTP_DECODE "http_decode"
+#define ZIA_SERVICE_HTTP_ENCODE "http_encode"
+
 namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaDecodeException, ZiaException);

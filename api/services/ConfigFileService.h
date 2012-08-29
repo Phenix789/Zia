@@ -11,17 +11,18 @@
 #include "ZiaException.h"
 #include "Service.h"
 
+#define ZIA_SERVICE_CONFIG_FILE "config_file"
+
 namespace ZIA_API_NAMESPACE {
 
-	class ConfigFileService : public Service {
+	interface ConfigFileService : public Service {
 	protected:
 
 	public:
-		ConfigFileService(ZiaCore & core);
-		virtual ~ConfigFileService();
+		ConfigFileService(ZiaCore & core) : Service(core) {}
+		virtual ~ConfigFileService() {}
 
-		virtual const std::string & getName() const;
-		virtual void initialise() __throw __throw1(ZAN::ZiaServiceException);
+		virtual ZiaConfigFile & getConfigFile() = 0;
 
 	};
 
