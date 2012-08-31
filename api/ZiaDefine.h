@@ -9,6 +9,7 @@
 #define __ZIADEFINE_H__
 
 #include <string>
+#include <iostream>
 #include <list>
 #include <vector>
 #include <map>

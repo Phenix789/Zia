@@ -12,7 +12,7 @@ EXCEPTION_IMPLEMENTATION_ERROR(ThreadException, Exception)
 EXCEPTION_IMPLEMENTATION_ERROR(BasicThreadException, Exception)
 
 void * utils::__thread_start(void * data) {
-	Thread * thread = static_cast<Thread *> (data);
+	Thread * thread = reinterpret_cast<Thread *> (data);
 	thread->running = true;
 	thread->run();
 	thread->running = false;
