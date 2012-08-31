@@ -23,8 +23,8 @@ namespace ZIA_API_NAMESPACE {
 		CFLibrary();
 		virtual ~CFLibrary();
 
-		const std::string & getName() const;
-		const std::string & getPath() const;
+		virtual const std::string & getName() const = 0;
+		virtual const std::string & getPath() const = 0;
 
 	};
 
@@ -36,8 +36,8 @@ namespace ZIA_API_NAMESPACE {
 		CFFilter();
 		virtual ~CFFilter();
 
-		const std::string & getName() const;
-		bool isEnable() const;
+		virtual const std::string & getName() const = 0;
+		virtual bool isEnable() const = 0;
 
 	};
 
@@ -49,13 +49,13 @@ namespace ZIA_API_NAMESPACE {
 		CFModule();
 		virtual ~CFModule();
 
-		const std::string & getName() const;
-		const std::string & getFilter() const;
-		bool isEnable() const;
+		virtual const std::string & getName() const = 0;
+		virtual const std::string & getFilter() const = 0;
+		virtual bool isEnable() const = 0;
 
-		bool hasArgument(const std::string & name) const;
-		const utils::Variant & getArgument(const std::string & name) const __throw;
-		utils::Variant getArgument(const std::string & name);
+		virtual bool hasArgument(const std::string & name) const = 0;
+		virtual const utils::Variant & getArgument(const std::string & name) const __throw = 0;
+		virtual utils::Variant getArgument(const std::string & name) = 0;
 
 	};
 
@@ -67,12 +67,12 @@ namespace ZIA_API_NAMESPACE {
 		CFService();
 		virtual ~CFService();
 
-		const std::string & getName() const;
-		bool isEnable() const;
+		virtual const std::string & getName() const = 0;
+		virtual bool isEnable() const = 0;
 
-		bool hasArgument(const std::string & name) const;
-		const utils::Variant & getArgument(const std::string & name) const __throw;
-		utils::Variant getArgument(const std::string & name);
+		virtual bool hasArgument(const std::string & name) const = 0;
+		virtual const utils::Variant & getArgument(const std::string & name) const __throw = 0;
+		virtual utils::Variant getArgument(const std::string & name) = 0;
 
 	};
 
@@ -84,16 +84,16 @@ namespace ZIA_API_NAMESPACE {
 		ZiaConfigFile();
 		virtual ~ZiaConfigFile();
 
-		void load(const std::string & filename) __throw;
+		virtual void load(const std::string & filename) __throw = 0;
 
-		const std::list<CFLibrary> & getLibraries() const;
-		const std::list<CFFilter> & getFilters() const;
-		const std::list<CFModule> & getModules() const;
-		const std::list<CFService> & getServices() const;
+		virtual const std::list<CFLibrary> & getLibraries() const = 0;
+		virtual const std::list<CFFilter> & getFilters() const = 0;
+		virtual const std::list<CFModule> & getModules() const = 0;
+		virtual const std::list<CFService> & getServices() const = 0;
 
-		const CFFilter & getFilter(const std::string & name) const;
-		const CFModule & getModule(const std::string & name) const;
-		const CFService & getService(const std::string & name) const;
+		virtual const CFFilter & getFilter(const std::string & name) const = 0;
+		virtual const CFModule & getModule(const std::string & name) const = 0;
+		virtual const CFService & getService(const std::string & name) const = 0;
 
 	};
 
