@@ -23,7 +23,7 @@ namespace network {
 		virtual void onDisconnect(NetworkDisconnect reason) = 0;
 
 		virtual void setCommunicator(Communicator * com) = 0;
-		virtual const Communicator * getCommunicator() const = 0;
+		virtual Communicator * getCommunicator() = 0;
 
 	};
 
