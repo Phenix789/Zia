@@ -4,6 +4,7 @@
  *
  */
 
+#include <unistd.h>
 #include "Thread.h"
 
 using namespace utils;
