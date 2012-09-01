@@ -29,6 +29,7 @@ namespace ZIA_API_NAMESPACE {
 		const Buffer & getBuffer() const;
 		const Buffer& getBufferHeader() const;
 		Buffer & getBuffer();
+		Buffer & getBufferHeader();
 
 		bool hasHeader(const std::string & key) const;
 		const utils::Variant & getHeader(const std::string & key) const __throw;
