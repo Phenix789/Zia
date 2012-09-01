@@ -44,7 +44,6 @@ namespace ZIA_API_NAMESPACE {
 
                 Filter & addModule(Module __delegate * module, Position pos = End, const std::string & moduleName = "") __throw __throw1(ZAN::ZiaUnknowModuleException);
                 Filter & removeModule(const std::string & moduleName) __throw __throw1(ZAN::ZiaUnknowModuleException);
-		Filter & setEnableModule(const std::string & moduleName, bool enable) __throw __throw1(ZAN::ZiaUnknowModuleException);
 
 		bool initialize(ZiaCore * core) __throw;
 
