@@ -16,6 +16,8 @@ namespace utils {
 
 	std::vector<std::string> & split(const std::string & str, char delim, std::vector<std::string> & strings);
 	std::vector<std::string> split(const std::string & str, char delim);
+	std::vector<std::string> & split(const std::string & str, char * delim, std::vector<std::string> & strings);
+	std::vector<std::string> split(const std::string & str, char * delim);
 
 	int to_upper(int c);
 	void string_to_upper(std::string & str);

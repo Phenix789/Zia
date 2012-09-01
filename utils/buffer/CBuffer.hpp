@@ -57,11 +57,15 @@ namespace utils {
 		}
 
 		virtual void cpyToBuffer(Array<T> & othData, int size) {
-			cpyToBuffer(othData.getData(), size);
+			if (othData.size() >= size) {
+				cpyToBuffer(othData.getData(), size);
+				othData.setUsedSize(size);
+			}
 		}
 
 		virtual void cpyToBuffer(Array<T> & othData) {
 			cpyToBuffer(othData.getData(), othData.size());
+			othData.setUsedSize(othData.size());
 		}
 
 		virtual void cpyToBuffer(T * othBuffer, int othSize) {
