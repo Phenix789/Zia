@@ -20,7 +20,7 @@ namespace utils {
 		virtual ~Fifo() {}
 
 		virtual void put(Type & t) {
-			push(t);
+			this->push(t);
 		}
 
 		virtual Type & get() {
