@@ -73,9 +73,9 @@ namespace utils {
 			collection[key] = value;
 		}
 
-		void setValue(const std::string & key, Variant value) {
-			collection[key] = value;
-		}
+//		void setValue(const std::string & key, Variant value) {
+//			collection[key] = value;
+//		}
 
 		void removeValue(const std::string & key) {
 			Map::iterator it = collection.find(key);

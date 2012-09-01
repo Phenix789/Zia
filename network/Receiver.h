@@ -19,7 +19,7 @@ namespace network {
 		Receiver() {}
 		virtual ~Receiver() {}
 
-		virtual void onReceive(const utils::CharArray & buffer) = 0;
+		virtual void onReceive(utils::CharArray & buffer) = 0;
 		virtual void onDisconnect(NetworkDisconnect reason) = 0;
 
 		virtual void setCommunicator(Communicator * com) = 0;
