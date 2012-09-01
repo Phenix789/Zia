@@ -192,10 +192,14 @@ namespace utils {
 			return table;
 		}
 
-		void setData(T * data, int size) {
+		void setData(T * data, int size, bool deleteAtDestroy = true) {
+			if (deleteAtDestroy && this->table) {
+				delete this->table;
+			}
 			this->table = data;
 			this->tableSize = size;
 			this->currentUsedSize = size;
+			this->deleteAtDestroy = deleteAtDestroy;
 		}
 
 		void setDeleteAtDestroy(bool deleteAtDestroy) {
