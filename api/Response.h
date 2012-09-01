@@ -11,41 +11,39 @@
 #include "collection/Collection.hpp"
 #include "ZiaDefine.h"
 
-namespace ZIA_API_NAMESPACE
-{
+namespace ZIA_API_NAMESPACE {
 
-  class Response
-  {
-  protected:
-    ResponseCode code;
-    utils::Collection headers;
-    Buffer buffer;
-    Buffer bufferHeader;
+	class Response {
+	protected:
+		ResponseCode code;
+		utils::Collection headers;
+		Buffer buffer;
+		Buffer bufferHeader;
 
-  public:
-    Response();
-    virtual ~Response();
-    
-    /*GETTER*/
-    ResponseCode getResponseCode() const;
-    const Buffer & getBuffer() const;
-    const Buffer& getBufferHeader() const;
-    Buffer & getBuffer();
-    
-    bool hasHeader(const std::string & key) const;
-    const utils::Variant & getHeader(const std::string & key) const __throw;
-    const utils::Variant & getHeader(const std::string & key, const utils::Variant & defaultValue) const;
-    const utils::Collection & getHeaders() const;
-    utils::Collection & getHeaders();
-    
-    /*SETTER*/
-    Response & setResponseCode(ResponseCode code);
-    
-    Response & addHeader(const std::string & name, const std::string & value);
-    Response & addHeader(const std::string & name, const utils::Variant & value);
+	public:
+		Response();
+		virtual ~Response();
+
+		/*GETTER*/
+		ResponseCode getResponseCode() const;
+		const Buffer & getBuffer() const;
+		const Buffer& getBufferHeader() const;
+		Buffer & getBuffer();
+
+		bool hasHeader(const std::string & key) const;
+		const utils::Variant & getHeader(const std::string & key) const __throw;
+		const utils::Variant & getHeader(const std::string & key, const utils::Variant & defaultValue) const;
+		const utils::Collection & getHeaders() const;
+		utils::Collection & getHeaders();
+
+		/*SETTER*/
+		Response & setResponseCode(ResponseCode code);
+
+		Response & addHeader(const std::string & name, const std::string & value);
+		Response & addHeader(const std::string & name, const utils::Variant & value);
 		Response & removeHeader(const std::string & name) __throw;
-    Response & clearHeaders();
-    
-  };
-  
+		Response & clearHeaders();
+
+	};
+
 }
