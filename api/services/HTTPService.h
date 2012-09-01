@@ -35,7 +35,7 @@ namespace ZIA_API_NAMESPACE {
 		HTTPEncode() {}
 		virtual ~HTTPEncode() {}
 
-		virtual void encode(Response & response, Buffer & buffer) __throw __throw1(ZAN::ZiaEncodeException) = 0;
+		virtual void encode(ZAN::Request & request, ZAN::Response& reponse) __throw __throw1(ZAN::ZiaEncodeException) = 0;
 
 	};
 
