@@ -17,6 +17,8 @@ namespace ZIA_API_NAMESPACE {
 	class Request {
 	protected:
 		std::string ressource;
+		std::string filename;
+		std::string query;
 		RequestMethod method;
 		ProtocolVersion version;
 		utils::Collection headers;
@@ -29,6 +31,8 @@ namespace ZIA_API_NAMESPACE {
 
 		/*GETTER*/
 		const std::string & getRessource() const;
+		const std::string & getFilename() const;
+		const std::string & getQuery() const;
 		RequestMethod getMethod() const;
 		const std::string & getStringMethod() const;
 		ProtocolVersion getProtocolVersion() const;
