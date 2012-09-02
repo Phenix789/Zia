@@ -20,8 +20,8 @@
 #define ZAN ZIA_API_NAMESPACE
 
 #define ZIA_API_VERSION_MAJOR 0
-#define ZIA_API_VERSION_MINOR 1
-#define ZIA_API_VERSION 0.1
+#define ZIA_API_VERSION_MINOR 5
+#define ZIA_API_VERSION 0.5
 
 #define ZIA_CORE class ZiaCore;
 
@@ -112,12 +112,100 @@ namespace ZIA_API_NAMESPACE {
                 RC_511 = 511, //RFC 6585
         };
 
+	enum HeaderRequest {
+		HRq_Accept,
+		HRq_Accept_Charset,
+		HRq_Accept_Encoding,
+		HRq_Accept_Language,
+		HRq_Accept_Datetime,
+		HRq_Authorization,
+		HRq_Cache_Control,
+		HRq_Connection,
+		HRq_Cookie,
+		HRq_Content_Length,
+		HRq_Content_MD5,
+		HRq_Content_Type,
+		HRq_Date,
+		HRq_Expect,
+		HRq_From,
+		HRq_Host,
+		HRq_If_Match,
+		HRq_If_Modified_Since,
+		HRq_If_None_Match,
+		HRq_If_Range,
+		HRq_If_Unmodified_Since,
+		HRq_Max_Forwards,
+		HRq_Prama,
+		HRq_Proxy_Authorization,
+		HRq_Range,
+		HRq_Referer,
+		HRq_TE,
+		HRq_Upgrade,
+		HRq_User_Agent,
+		HRq_Via,
+		HRq_Warning,
+		HRq_X_Requested_With, /*Common non-standard*/
+		HRq_DNT, /*Common non-standard*/
+		HRq_X_Forwarded_For, /*Common non-standard*/
+		HRq_X_ATT_DeviceId, /*Common non-standard*/
+		HRq_X_Wap_Profile, /*Common non-standard*/
+		HRq_Proxy_Connection /*Common non-standard*/
+	};
+
+	enum HeaderResponse {
+		HRp_Access_Control_Allow_Origin,
+		HRp_Accept_Ranges,
+		HRp_Age,
+		HRp_Allow,
+		HRp_Cache_Control,
+		HRp_Connection,
+		HRp_Content_Encoding,
+		HRp_Content_Language,
+		HRp_Content_Length,
+		HRp_Content_Location,
+		HRp_Content_MD5,
+		HRp_Content_Disposition,
+		HRp_Content_Range,
+		HRp_Content_Type,
+		HRp_Date,
+		HRp_ETag,
+		HRp_Expires,
+		HRp_Last_Modified,
+		HRp_Link,
+		HRp_Location,
+		HRp_P3P,
+		HRp_Pragma,
+		HRp_Proxy_Authenticate,
+		HRp_Refresh,
+		HRp_Retry_After,
+		HRp_Server,
+		HRp_Set_Cookie,
+		HRp_Strict_Transport_Security,
+		HRp_Trailer,
+		HRp_Transfer_Encoding,
+		HRp_Vary,
+		HRp_Via,
+		HRp_Warning,
+		HRp_WWW_Authenticate,
+		HRp_X_Frame_Options, /*Common non-standard*/
+		HRp_X_XSS_Protection, /*Common non-standard*/
+		HRp_X_Content_Type_Options, /*Common non-standard*/
+		HRp_X_Forwarded_Proto, /*Common non-standard*/
+		HRp_Front_End_Https, /*Common non-standard*/
+		HRp_X_Powered_By, /*Common non-standard*/
+		HRp_X_UA_Compatible /*Common non-standard*/
+	};
+
 	const std::string & get_protocol_version_string(ProtocolVersion version);
 	const std::string & get_request_method_string(RequestMethod method);
         const std::string & get_response_code_string(ResponseCode code);
+	const std::string & get_header_request_string(HeaderRequest header);
+	const std::string & get_header_response_string(HeaderResponse header);
 
 	ProtocolVersion get_protocol_version(const std::string & version);
 	RequestMethod get_request_method(const std::string & method);
 	ResponseCode get_response_code(const std::string & code);
+	HeaderRequest get_header_request(const std::string & header);
+	HeaderResponse get_header_response(const std::string & header);
 
 }
