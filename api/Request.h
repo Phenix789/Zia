@@ -54,7 +54,6 @@ namespace ZIA_API_NAMESPACE {
 		Request & setProtocolVersion(ProtocolVersion version);
 		Request & setBuffer(Buffer & buffer);
 
-		Request & addHeader(const std::string & key, const std::string & value);
 		Request & addHeader(const std::string & key, const utils::Variant & value);
 		Request & removeHeader(const std::string & key) __throw;
 		Request & cleanHeaders();

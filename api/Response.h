@@ -40,7 +40,6 @@ namespace ZIA_API_NAMESPACE {
 		/*SETTER*/
 		Response & setResponseCode(ResponseCode code);
 
-		Response & addHeader(const std::string & name, const std::string & value);
 		Response & addHeader(const std::string & name, const utils::Variant & value);
 		Response & removeHeader(const std::string & name) __throw;
 		Response & clearHeaders();
