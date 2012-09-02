@@ -25,6 +25,7 @@ namespace ZIA_API_NAMESPACE {
 		typedef std::map<std::string, Service *> ServiceMap;
 		ServiceMap services;
 		const std::string name;
+		bool init;
 
 	public:
 		ServiceManager();
