@@ -47,21 +47,20 @@ namespace ZIA_API_NAMESPACE {
 		utils::Collection meta_vars;
 
 	public:
-		CGIModule();
-		virtual ~CGIModule();
+	  CGIModule();
+	  virtual ~CGIModule();
+	  virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException);
 
-		virtual bool initialize() __throw __throw1(ZAN::ZiaModuleException);
+	  void setBasicMetaVariable(Request & request);
+	  void setMetaVariable(MetaVariable key, const utils::Variant & value);
+	  void setMetaVariable(MetaVariable key, utils::Variant value);
+	  void setMetaVariable(const std::string & key, const utils::Variant & value);
+	  void setMetaVariable(const std::string & key, utils::Variant value);
 
-		void setBasicMetaVariable(Request & request);
-		void setMetaVariable(MetaVariable key, const utils::Variant & value);
-		void setMetaVariable(MetaVariable key, utils::Variant value);
-		void setMetaVariable(const std::string & key, const utils::Variant & value);
-		void setMetaVariable(const std::string & key, utils::Variant value);
+	  void call(Request & request, Response & response, const std::string & executable) __throw __throw1(ZAN::ZiaModuleException);
 
-		void call(Request & request, Response & response, const std::string & executable);
-
-		static const std::string & getMetaVariableString(MetaVariable key);
-		static MetaVariable getMetaVariable(const std::string & key);
+	  static const std::string & getMetaVariableString(MetaVariable key);
+	  static MetaVariable getMetaVariable(const std::string & key);
 
 	};
 
