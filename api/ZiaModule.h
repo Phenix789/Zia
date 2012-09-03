@@ -9,6 +9,7 @@
 #define __ZIAMODULE_H__
 
 #include "ZiaDefine.h"
+#include "ZiaException.h"
 #include "Request.h"
 #include "Response.h"
 

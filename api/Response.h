@@ -8,8 +8,9 @@
 #pragma once
 #define __RESPONSE_H__
 
-#include "ZiaDefine.h"
 #include "../utils/Buffer.h"
+#include "ZiaDefine.h"
+#include "ZiaException.h"
 
 namespace ZIA_API_NAMESPACE {
 

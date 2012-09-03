@@ -10,6 +10,7 @@
 
 #include "../network/Communicator.h"
 #include "ZiaDefine.h"
+#include "ZiaException.h"
 
 namespace ZIA_API_NAMESPACE {
 

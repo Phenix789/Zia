@@ -8,7 +8,7 @@
 #define	__NETWORK_H__
 
 #include "../utils/Define.h"
-#include "../utils/Exception.hpp"
+#include "../utils/Exception.h"
 
 namespace network {
 
