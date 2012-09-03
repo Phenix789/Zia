@@ -7,12 +7,12 @@
 #pragma once
 #define	__COMMUNICATOR_H__
 
+#include "../utils/Buffer.h"
 #include "Network.h"
-#include "buffer/Array.hpp"
 
 namespace network {
 
-	interface Communicator {
+	class Communicator {
 	public:
 		static const unsigned int ALL = static_cast<unsigned int>(-1);
 
@@ -26,7 +26,9 @@ namespace network {
 		virtual Ip getPeerIp() const = 0;
 		virtual Port getPeerPort() const = 0;
 
-		virtual int send(const utils::CharArray & buffer, unsigned int length = Communicator::ALL, unsigned int offset = 0) = 0;
+		virtual void onReceive(utils::Buffer & buffer);
+		virtual int send(const utils::Buffer & buffer, unsigned int length = Communicator::ALL, unsigned int offset = 0) = 0;
+		virtual void onDisconnect(NetworkDisconnect reason) = 0;
 
 	};
 

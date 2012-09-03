@@ -13,22 +13,19 @@
 #include <list>
 #include <vector>
 #include <map>
-#include "Define.h"
-#include "buffer/Array.hpp"
+#include "../utils/Define.h"
 
 #define ZIA_API_NAMESPACE ZiaAPI
 #define ZAN ZIA_API_NAMESPACE
 
-#define ZIA_API_VERSION_MAJOR 0
-#define ZIA_API_VERSION_MINOR 5
-#define ZIA_API_VERSION 0.5
-
+#define ZIA_API_VERSION_MAJOR 2
+#define ZIA_API_VERSION_MINOR 0
+#define ZIA_API_VERSION 2.0
 #define ZIA_CORE class ZiaCore;
 
 namespace ZIA_API_NAMESPACE {
 
-	typedef utils::CharArray Buffer;
-	typedef std::map<std::string, std::string> ParameterMap;
+	typedef std::map<std::string, std::string> HeaderMap;
 
         enum ProtocolVersion {
                 PV_HTTP_1_0,

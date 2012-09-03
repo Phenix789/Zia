@@ -8,6 +8,7 @@
 #define	__EXCEPTION_H__
 
 #include <string>
+#include "Define.h"
 
 namespace utils {
 

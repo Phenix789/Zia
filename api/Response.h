@@ -8,39 +8,34 @@
 #pragma once
 #define __RESPONSE_H__
 
-#include "collection/Collection.hpp"
 #include "ZiaDefine.h"
+#include "../utils/Buffer.h"
 
 namespace ZIA_API_NAMESPACE {
 
 	class Response {
-	protected:
-		ResponseCode code;
-		utils::Collection headers;
-		Buffer buffer;
-		Buffer bufferHeader;
-
 	public:
 		Response();
 		virtual ~Response();
 
 		/*GETTER*/
 		ResponseCode getResponseCode() const;
-		const Buffer & getBuffer() const;
-		const Buffer& getBufferHeader() const;
-		Buffer & getBuffer();
-		Buffer & getBufferHeader();
+		const utils::Buffer & getBuffer() const;
+		utils::Buffer & getBuffer();
+
+		const utils::Buffer & getBufferHeader() const;
+		utils::Buffer & getBufferHeader();
 
 		bool hasHeader(const std::string & key) const;
-		const utils::Variant & getHeader(const std::string & key) const __throw;
-		const utils::Variant & getHeader(const std::string & key, const utils::Variant & defaultValue) const;
-		const utils::Collection & getHeaders() const;
-		utils::Collection & getHeaders();
+		const std::string & getHeader(const std::string & key) const __throw;
+		const std::string & getHeader(const std::string & key, const std::string & defaultValue) const;
+		const HeaderMap & getHeaders() const;
+		HeaderMap & getHeaders();
 
 		/*SETTER*/
 		Response & setResponseCode(ResponseCode code);
 
-		Response & addHeader(const std::string & name, const utils::Variant & value);
+		Response & addHeader(const std::string & name, const std::string & value);
 		Response & removeHeader(const std::string & name) __throw;
 		Response & clearHeaders();
 

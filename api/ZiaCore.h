@@ -8,14 +8,11 @@
 #pragma once
 #define __ZIACORE_H__
 
+#include "../network/Communicator.h"
 #include "ZiaDefine.h"
 #include "ZiaException.h"
-#include "Service.h"
-#include "ServiceManager.h"
-#include "Module.h"
-#include "Chain.h"
-#include "Loader.h"
-#include "Receiver.h"
+#include "ZiaService.h"
+#include "ZiaModule.h"
 
 #define ZIA_SERVICE_ZIA_CORE "zia_core"
 
@@ -23,7 +20,7 @@ namespace ZIA_API_NAMESPACE {
 
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaCoreException, ZiaFatalException);
 
-        interface ZiaCore : public Service {
+        class ZiaCore : public ZiaService {
         public:
                 ZiaCore() {}
                 virtual ~ZiaCore() {}
@@ -31,11 +28,9 @@ namespace ZIA_API_NAMESPACE {
 		virtual void initialize() __throw = 0;
 		virtual void run() = 0;
 
-		virtual void listen(int port) __throw = 0;
-		virtual void onReceive(network::Receiver & receiver, Buffer & buffer) = 0;
+		virtual void onReceive(network::Communicator & receiver, utils::Buffer & buffer) = 0;
 
-		virtual Chain & getChain() = 0;
-		virtual ServiceManager & getServiceManager() = 0;
+		virtual ZiaService * getService(const std::string & name) = 0;
 
         };
 

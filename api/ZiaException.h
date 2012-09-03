@@ -8,8 +8,8 @@
 #pragma once
 #define __ZIAEXCEPTION_H__
 
+#include "../utils/Exception.hpp"
 #include "ZiaDefine.h"
-#include "tools/Exception.hpp"
 
 namespace ZIA_API_NAMESPACE {
 

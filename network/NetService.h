@@ -20,14 +20,13 @@ namespace network {
 		NetService() {}
 		virtual ~NetService() {}
 
-		void listen(Listener * listener, int port) __throw __throw1(network::NetworkException);
-		Communicator & connect(Ip & ip, Port & port) __throw __throw1(network::NetworkException);
-		void close(Receiver & listener);
+		virtual void listen(Listener * listener, int port) __throw __throw1(network::NetworkException) = 0;
+		virtual void close(Communicator & com) = 0;
 
-		void flushEvent(unsigned int nb = NetService::ALL);
+		virtual void flushEvent(unsigned int nb = NetService::ALL) = 0;
 
-		void start();
-		void stop();
+		virtual void start() = 0;
+		virtual void stop() = 0;
 
 	};
 

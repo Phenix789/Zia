@@ -7,8 +7,8 @@
 #pragma once
 #define	__NETWORK_H__
 
-#include "Define.h"
-#include "tools/Exception.hpp"
+#include "../utils/Define.h"
+#include "../utils/Exception.hpp"
 
 namespace network {
 

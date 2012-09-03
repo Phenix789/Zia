@@ -8,25 +8,14 @@
 #pragma once
 #define __REQUEST_H__
 
-#include "collection/Collection.hpp"
-#include "Receiver.h"
+#include "../network/Communicator.h"
 #include "ZiaDefine.h"
 
 namespace ZIA_API_NAMESPACE {
 
 	class Request {
-	protected:
-		std::string ressource;
-		std::string filename;
-		std::string query;
-		RequestMethod method;
-		ProtocolVersion version;
-		utils::Collection headers;
-		network::Receiver & user;
-		Buffer & buffer;
-
 	public:
-		Request(network::Receiver & user, Buffer & buffer);
+		Request(network::Communicator & user, utils::Buffer & buffer);
 		virtual ~Request();
 
 		/*GETTER*/
@@ -37,24 +26,26 @@ namespace ZIA_API_NAMESPACE {
 		const std::string & getStringMethod() const;
 		ProtocolVersion getProtocolVersion() const;
 		const std::string & getStringProtocolVersion() const;
-		const network::Receiver & getReceiver() const;
-		const Buffer & getBuffer() const;
-		network::Receiver & getReceiver();
-		Buffer & getBuffer();
+		const network::Communicator & getCommunicator() const;
+		network::Communicator & getCommunicator();
+		const utils::Buffer & getBuffer() const;
+		utils::Buffer & getBuffer();
 
 		bool hasHeader(const std::string & key) const;
-		const utils::Variant & getHeader(const std::string & key) const __throw;
-		const utils::Variant & getHeader(const std::string & key, const utils::Variant & defaultValue) const;
-		const utils::Collection & getHeaders() const;
-		utils::Collection & getHeaders();
+		const std::string & getHeader(const std::string & key) const __throw;
+		const std::string & getHeader(const std::string & key, const std::string & defaultValue) const;
+		const HeaderMap & getHeaders() const;
+		HeaderMap & getHeaders();
 
 		/*SETTER*/
 		Request & setRessource(const std::string & ressource);
+		Request & setFilename(const std::string & ressource);
+		Request & setQuery(const std::string & ressource);
 		Request & setMethod(RequestMethod method);
 		Request & setProtocolVersion(ProtocolVersion version);
-		Request & setBuffer(Buffer & buffer);
+		Request & setBuffer(utils::Buffer & buffer);
 
-		Request & addHeader(const std::string & key, const utils::Variant & value);
+		Request & addHeader(const std::string & key, const std::string & value);
 		Request & removeHeader(const std::string & key) __throw;
 		Request & cleanHeaders();
 

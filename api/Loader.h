@@ -9,8 +9,8 @@
 
 #include "ZiaDefine.h"
 #include "ZiaException.h"
-#include "Service.h"
-#include "Module.h"
+#include "ZiaService.h"
+#include "ZiaModule.h"
 
 namespace ZIA_API_NAMESPACE {
 
@@ -19,7 +19,7 @@ namespace ZIA_API_NAMESPACE {
 	EXCEPTION_DECLARATION_INLINE_ERROR(ZiaLoadException, ZiaException);
 
 	template<typename T>
-	interface Handler {
+	class Handler {
 	public:
 		typedef T Base;
 
@@ -65,11 +65,11 @@ namespace ZIA_API_NAMESPACE {
 
 	};
 
-	typedef Handler<Module> HandlerModule;
-	typedef Handler<Service> HandlerService;
+	typedef Handler<ZiaModule> HandlerModule;
+	typedef Handler<ZiaService> HandlerService;
 
-	typedef Loader<Module> LoaderModule;
-	typedef Loader<Service> LoaderService;
+	typedef Loader<ZiaModule> LoaderModule;
+	typedef Loader<ZiaService> LoaderService;
 
 }
 

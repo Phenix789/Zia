@@ -26,18 +26,6 @@
 #define __static
 
 /**
- * @def interface
- * @brief Definit une interface
- */
-#define interface class
-
-/**
- * @def abstract
- * @brief Definit une class abstraite
- */
-#define abstract
-
-/**
  * @def __throw
  * @brief La fonction/method est suceptible de lancer une exception. Le nom de l'exception lancé peut etre specifié
  */
