@@ -20,25 +20,25 @@ namespace ZIA_API_NAMESPACE {
 		virtual ~Response();
 
 		/*GETTER*/
-		ResponseCode getResponseCode() const;
-		const utils::Buffer & getBuffer() const;
-		utils::Buffer & getBuffer();
+		virtual ResponseCode getResponseCode() const = 0;
+		virtual const utils::Buffer & getBuffer() const = 0;
+		virtual utils::Buffer & getBuffer() = 0;
 
-		const utils::Buffer & getBufferHeader() const;
-		utils::Buffer & getBufferHeader();
+		virtual const utils::Buffer & getBufferHeader() const = 0;
+		virtual utils::Buffer & getBufferHeader() = 0;
 
-		bool hasHeader(const std::string & key) const;
-		const std::string & getHeader(const std::string & key) const __throw;
-		const std::string & getHeader(const std::string & key, const std::string & defaultValue) const;
-		const HeaderMap & getHeaders() const;
-		HeaderMap & getHeaders();
+		virtual bool hasHeader(const std::string & key) const = 0;
+		virtual const std::string & getHeader(const std::string & key) const __throw = 0;
+		virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue) const = 0;
+		virtual const HeaderMap & getHeaders() const = 0;
+		virtual HeaderMap & getHeaders() = 0;
 
 		/*SETTER*/
-		Response & setResponseCode(ResponseCode code);
+		virtual Response & setResponseCode(ResponseCode code) = 0;
 
-		Response & addHeader(const std::string & name, const std::string & value);
-		Response & removeHeader(const std::string & name) __throw;
-		Response & clearHeaders();
+		virtual Response & addHeader(const std::string & name, const std::string & value) = 0;
+		virtual Response & removeHeader(const std::string & name) __throw = 0;
+		virtual Response & clearHeaders() = 0;
 
 	};
 
