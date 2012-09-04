@@ -16,8 +16,7 @@ namespace ZIA_API_NAMESPACE {
 
 	class Response {
 	public:
-		Response();
-		virtual ~Response();
+		virtual ~Response(){}
 
 		/*GETTER*/
 		ResponseCode getResponseCode() const;
