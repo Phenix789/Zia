@@ -16,15 +16,13 @@ namespace ZIA_API_NAMESPACE {
 
 	class Response {
 	public:
-		virtual ~Response(){}
+		Response() {}
+		virtual ~Response() {}
 
 		/*GETTER*/
 		virtual ResponseCode getResponseCode() const = 0;
 		virtual const utils::Buffer & getBuffer() const = 0;
 		virtual utils::Buffer & getBuffer() = 0;
-
-		virtual const utils::Buffer & getBufferHeader() const = 0;
-		virtual utils::Buffer & getBufferHeader() = 0;
 
 		virtual bool hasHeader(const std::string & key) const = 0;
 		virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue) const = 0;
@@ -37,6 +35,9 @@ namespace ZIA_API_NAMESPACE {
 		virtual Response & addHeader(const std::string & name, const std::string & value) = 0;
 		virtual Response & removeHeader(const std::string & name) __throw = 0;
 		virtual Response & clearHeaders() = 0;
+
+		/*SERIALISE*/
+		virtual bool serialise(utils::Buffer & buffer, int offset = 0) = 0;
 
 	};
 
