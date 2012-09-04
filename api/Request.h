@@ -17,7 +17,7 @@ namespace ZIA_API_NAMESPACE {
 	class Request
 	{
 	public:
-	  virtual ~Request();
+	  virtual ~Request(){}
 	  
 	  /*GETTER*/
 	  virtual const std::string & getRessource() const = 0;
@@ -33,8 +33,7 @@ namespace ZIA_API_NAMESPACE {
 	  virtual utils::Buffer & getBuffer() = 0;
 
 	  virtual bool hasHeader(const std::string & key) const = 0;
-	  virtual const std::string & getHeader(const std::string & key) const __throw = 0;
-	  virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue) const = 0;
+	  virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue = "") const = 0;
 	  virtual const HeaderMap & getHeaders() const = 0;
 	  virtual HeaderMap & getHeaders() = 0;
 	  
@@ -49,7 +48,6 @@ namespace ZIA_API_NAMESPACE {
 	  virtual Request & addHeader(const std::string & key, const std::string & value) = 0;
 	  virtual Request & removeHeader(const std::string & key) __throw = 0;
 	  virtual Request & cleanHeaders() = 0;
->>>>>>> ad731a394be275c30a0b8d9257a9cab998c07220
 
 	};
 }

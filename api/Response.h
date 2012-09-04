@@ -27,7 +27,6 @@ namespace ZIA_API_NAMESPACE {
 		virtual utils::Buffer & getBufferHeader() = 0;
 
 		virtual bool hasHeader(const std::string & key) const = 0;
-		virtual const std::string & getHeader(const std::string & key) const __throw = 0;
 		virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue) const = 0;
 		virtual const HeaderMap & getHeaders() const = 0;
 		virtual HeaderMap & getHeaders() = 0;
