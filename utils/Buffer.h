@@ -18,6 +18,8 @@ namespace utils {
 
 		virtual const char * getData() const = 0;
 		virtual char * getData() = 0;
+		virtual char * getAddress(unsigned int) const = 0;
+		virtual void setData(char *data, int offset);
 
 		virtual unsigned int getSize() const = 0;
 

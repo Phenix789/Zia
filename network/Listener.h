@@ -17,7 +17,7 @@ namespace network {
 		Listener() {}
 		virtual ~Listener() {}
 
-		virtual Communicator * onAccept(Communicator * com) = 0;
+		virtual Communicator * onAccept() = 0;
 
 	};
 

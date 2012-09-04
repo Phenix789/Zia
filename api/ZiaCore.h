@@ -25,7 +25,7 @@ namespace ZIA_API_NAMESPACE {
                 ZiaCore() {}
                 virtual ~ZiaCore() {}
 
-		virtual void initialize() __throw = 0;
+		virtual bool initialize() __throw = 0;
 		virtual void run() = 0;
 
 		virtual void onReceive(network::Communicator & receiver, utils::Buffer & buffer) = 0;
