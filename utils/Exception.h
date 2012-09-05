@@ -24,7 +24,6 @@ namespace utils {
 		inline virtual const std::string & getError() const throw () { return error; }
 
 	protected:
-		inline std::string & getError() throw () { return error; }
 		inline void setError(const std::string & error) throw () { this->error = error; }
 
 	};
