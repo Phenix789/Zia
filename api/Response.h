@@ -21,6 +21,7 @@ namespace ZIA_API_NAMESPACE {
 
 		/*GETTER*/
 		virtual ResponseCode getResponseCode() const = 0;
+		virtual const std::string & getStringResponseCode() const = 0;
 		virtual ProtocolVersion getProtocolVersion() const = 0;
 		virtual const std::string & getStringProtocolVersion() const = 0;
 		virtual const utils::Buffer & getBuffer() const = 0;
