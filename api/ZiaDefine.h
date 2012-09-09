@@ -47,6 +47,7 @@ namespace ZIA_API_NAMESPACE {
         };
 
         enum ResponseCode {
+		RC_000 = 0,
                 RC_100 = 100,
                 RC_101 = 101,
                 RC_102 = 102, //RFC 2518
