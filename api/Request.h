@@ -27,6 +27,8 @@ namespace ZIA_API_NAMESPACE {
 		virtual const std::string & getStringMethod() const = 0;
 		virtual ProtocolVersion getProtocolVersion() const = 0;
 		virtual const std::string & getStringProtocolVersion() const = 0;
+		virtual const utils::Buffer & getDataBuffer() const = 0;
+		virtual utils::Buffer & getDataBuffer() = 0;
 
 		virtual bool hasHeader(const std::string & key) const = 0;
 		virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue = "") const = 0;

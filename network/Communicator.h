@@ -21,8 +21,10 @@ namespace network {
 		virtual ~Communicator() {}
 
 		virtual void onReceive(utils::Buffer & buffer) = 0;
-		virtual int send(const utils::Buffer & buffer, unsigned int length = Communicator::ALL, unsigned int offset = 0) = 0;
 		virtual void onDisconnect(NetworkDisconnect reason) = 0;
+
+		virtual int read(utils::Buffer & buffer, unsigned int length) = 0;
+		virtual int send(const utils::Buffer & buffer, unsigned int length = Communicator::ALL, unsigned int offset = 0) = 0;
 
 	};
 
