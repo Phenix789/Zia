@@ -23,7 +23,7 @@ namespace network {
 
 		virtual const std::string & getName() const = 0;
 		virtual bool initialize(ZAN::ZiaCore *core) = 0;
-		virtual void listen(Listener * listener, int port) __throw __throw1(network::NetworkException) = 0;
+		virtual void listen(Listener * listener, int port, bool ssl = false) __throw __throw1(network::NetworkException) = 0;
 		virtual void close(Communicator & com) = 0;
 
 		virtual void flushEvent(unsigned int nb = NetService::ALL) = 0;
