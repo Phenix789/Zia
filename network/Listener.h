@@ -9,10 +9,11 @@
 
 #include "Network.h"
 #include "Communicator.h"
+#include "NetObject.h"
 
-namespace network {
+namespace network{
 
-	class Listener {
+	class Listener  : public NetObject{
 	public:
 		Listener() {}
 		virtual ~Listener() {}
