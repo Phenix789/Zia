@@ -212,12 +212,14 @@ namespace utils {
 		void dump() const {
 			std::cout << "Size : " << _used << "/" << _size << std::endl;
 			std::cout << "Content : '''";
-			for(unsigned int i = 0; i < _used; i++) {
-				if (isprint(_data[i])) {
-					std::cout << _data[i];
-				}
-				else {
-					std::cout << "\\" << (int) _data[i];
+			if (_data) {
+				for(unsigned int i = 0; i < _used; i++) {
+					if (isprint(_data[i])) {
+						std::cout << _data[i];
+					}
+					else {
+						std::cout << "\\" << (int) _data[i];
+					}
 				}
 			}
 			std::cout << "'''" << std::endl;
