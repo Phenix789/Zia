@@ -31,6 +31,7 @@ namespace ZIA_API_NAMESPACE {
 		virtual const std::string & getHeader(const std::string & key, const std::string & defaultValue) const = 0;
 		virtual const HeaderMap & getHeaders() const = 0;
 		virtual HeaderMap & getHeaders() = 0;
+		virtual bool isDisableHeaders() const = 0;
 
 		/*SETTER*/
 		virtual Response & setResponseCode(ResponseCode code) = 0;
@@ -38,6 +39,7 @@ namespace ZIA_API_NAMESPACE {
 		virtual Response & addHeader(const std::string & name, const std::string & value) = 0;
 		virtual Response & removeHeader(const std::string & name) __throw = 0;
 		virtual Response & clearHeaders() = 0;
+		virtual Response & disableHeaders(bool disable) = 0;
 
 		/*CHUNK*/
 		virtual int sendChunk() = 0;
