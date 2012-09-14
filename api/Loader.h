@@ -47,7 +47,7 @@ namespace ZIA_API_NAMESPACE {
 			handlers.clear();
 		}
 
-		void save(const std::string & name, T __delegate * handler) {
+		void save(const std::string & name, Handler<T> __delegate * handler) {
 			typename HandlerMap::iterator it = handlers.find(name);
 			if (it != handlers.end()) {
 				delete it->second;
@@ -78,8 +78,8 @@ namespace ZIA_API_NAMESPACE {
 #define HANDLER_DECLARATION(base, real)						\
 class HANDLER_CLASS(base, real) : public ZAN::base {				\
 public:										\
-	virtual inline typename base::Base __delegate * load() {	\
-		return new real(core);						\
+	virtual inline typename ZAN::base::Base __delegate * load() {	\
+		return new real();						\
 	}									\
 }										\
 
