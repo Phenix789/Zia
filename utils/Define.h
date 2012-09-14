@@ -36,7 +36,9 @@
 #define __throw4(e1, e2, e3, e4)
 
 #if defined _WIN32
-#define WINDOWS
+# define WINDOWS
+# include <WinSock2.h>
+# include <Windows.h>
 #elif defined unix
-#define LINUX
+# define LINUX
 #endif
