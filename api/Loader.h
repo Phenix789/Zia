@@ -78,7 +78,7 @@ namespace ZIA_API_NAMESPACE {
 #define HANDLER_DECLARATION(base, real)						\
 class HANDLER_CLASS(base, real) : public ZAN::base {				\
 public:										\
-	virtual inline typename ZAN::base::Base __delegate * load() {	\
+	virtual inline __typename ZAN::base::Base __delegate * load() {	\
 		return new real();						\
 	}									\
 }										\

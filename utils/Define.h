@@ -39,6 +39,15 @@
 # define WINDOWS
 # include <WinSock2.h>
 # include <Windows.h>
+
+#define __typename
+#pragma warning(disable: 4250)
+#pragma warning(disable: 4244)
+#pragma warning(disable: 4355)
+#pragma warning(disable: 4722)
+
 #elif defined unix
 # define LINUX
+
+#define __typename typename
 #endif
