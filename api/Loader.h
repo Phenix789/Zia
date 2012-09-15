@@ -26,7 +26,7 @@ namespace ZIA_API_NAMESPACE {
 		Handler() {}
 		virtual ~Handler() {}
 
-		virtual inline T __delegate * load() = 0;
+		virtual T __delegate * load() = 0;
 
 	};
 
